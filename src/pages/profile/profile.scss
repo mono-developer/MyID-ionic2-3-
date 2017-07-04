@@ -1,0 +1,16 @@
+page-profile {
+  // .ion-ios-customicon-outline,
+  // .ion-ios-customicon,.ion-md-customicon,.ion-md-customicon-outline {
+  //   content: url("../assets/image/default_avatar.png");
+  // }
+
+  .tab-avatar{
+    z-index: 1000;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    bottom: -20px;
+    left: calc(50vw - 45px);
+    border-radius: 50px;
+  }
+}

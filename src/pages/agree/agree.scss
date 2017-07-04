@@ -1,0 +1,32 @@
+page-agree {
+      iframe
+      {
+        width: 100%;
+        height: calc(100% - 50px);
+      }
+      .agree{
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        bottom: 0px;
+        background-color: white;
+
+          button
+          {
+            width: auto;
+            height: 100%;
+            font-size: 20px;
+            margin-top: -1px;
+            clear: inherit;
+          }
+          .agree-btn
+          {
+            float: right;
+          }
+          .disagree-btn
+          {
+            float: left;
+          }
+      }
+
+}

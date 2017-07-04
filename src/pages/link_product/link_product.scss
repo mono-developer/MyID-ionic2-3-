@@ -1,0 +1,132 @@
+page-link-product {
+  .button-ios{
+    top: 20px;
+  }
+  .back_profile
+  {
+    background-color: transparent;
+    height: 27px;
+    padding-left: 2px;
+    font-size: 2.8rem;
+    font-size: 2.8rem;
+    width: 100px;
+    padding: 15px 0px;
+    position: absolute;
+    box-shadow: none;
+    z-index: 20;
+
+    .title-btn
+    {
+      width: 100%;
+      text-align: center;
+
+      .toolbar-title
+      {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .all_back{
+      font-size: 20px;
+      position: relative;
+      bottom: 5px;
+      margin-left: -5px;
+      font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+    }
+
+  }
+
+  .scan-btn{
+    width: 30vw;
+    height: 30vw;
+    border-radius: 4vw;
+    border-color: #008ecf;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 10vw;
+    margin-left: 35vw;
+
+    .scan-label{
+      color:rgb(0, 142, 207);
+      text-align:center;
+      margin-top: 2vw;
+      font-size: 3.5vw;
+    }
+
+    .scan-image{
+      width: 20vw;
+      height: 20vw;
+      margin-left: calc(5vw - 2px);
+
+    }
+  }
+
+  .or-div{
+    width:90vw;
+    margin-left:5vw;
+    height:20vw;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+
+    .or-label{
+      color:rgb(0, 142, 207);
+      margin-left:5vw;
+      margin-right:5vw;
+    }
+
+    .or-separator{
+      width: 36vw;
+      height:1px;
+      background-color:rgb(0, 142, 207);
+    }
+  }
+
+  .edit-pro-border
+    {
+      border: none !important;
+      box-shadow: none !important;
+      background-color: transparent;
+      float: left;
+      width: 49%;
+
+      .item-inner
+      {
+        border: none !important;
+        box-shadow: none !important;
+        .edit_label
+        {
+          font-size: 15px;
+          padding: 5px;
+        }
+        .edit_input{
+            border: 1px solid #008ecf;
+            border-radius: 10px;
+            padding: 0 10px;
+            background-color: #f3f0f0;
+            color: #008ecf;
+         }
+         .edit-select{
+            border: 1px solid #008ecf;
+            border-radius: 10px;
+            padding-left: 10px;
+            background-color: #f3f0f0;
+            color: #008ecf;
+         }
+      }
+    }
+
+    .link-btn
+        button{
+          width: 80%;
+          left: 10%;
+          color: #008ecf;
+          border-color: #008ecf;
+          font-size: 18px;
+          height: 48px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+      }
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" style="color:white;"></ion-icon>
+    </button>
+    <ion-title><div style="color:white;">Settings</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <button ion-button full  color="light" class="setting_btn" (click)="goPasscodePage()">
+      <p class="title">Pascode Lock</p>
+      <p style="margin-right: 15px;">off</p>
+      <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
+    </button>
+    <button ion-button full  color="light" class="setting_btn" (click)="goUpgradeAccountPage()">
+      <p class="title" >{{email}}</p>
+      <ion-icon name="ios-arrow-forward-outline" class="icon"></ion-icon>
+    </button>
+    <button ion-button full  color="light" class="setting_btn" (click)="goBillingPage()">
+      <p class="title">Billing</p>
+      <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
+    </button>
+  <button class="logout-btn" ion-button outline round (click)="logOut();">Log Out</button>
+</ion-content>

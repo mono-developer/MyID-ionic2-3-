@@ -1,0 +1,24 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content class="main-background">
+    <img src="assets/image/login_logo.png" class="main-logo"/>
+    <div class="email-password-div">
+        <ion-input type="email" value="" class="signup-input" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+        <div class="passwordDiv">
+            <ion-input type="password" value="" class="pw-input" placeholder="Password" style="border-left: none;" [(ngModel)]="user.password"></ion-input>
+            <ion-input type="password" value="" class="pw-input" placeholder="Confirm Password" [(ngModel)]="user.pw_confirm"></ion-input>
+      </div>
+    </div>
+
+    <div class="signupDiv">
+        <button ion-button block="true" outline="true" color="light" round class="signup-btn" (click)="gotoAgree();">Submit</button>
+        <button ion-button block="true" outline="true" color="light" clear class="signup-btn" (click)="backHome();">Cancel</button>
+    </div>
+</ion-content>

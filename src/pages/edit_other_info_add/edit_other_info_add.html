@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="title-custom"><div class="title-btn">Other Information</div></ion-title>
+
+    <ion-buttons end>
+      <button *ngIf="!otherInfoData.id" ion-button style="color:white; background-color:inherit;" (click)="otherInfoDataCreate();">
+        Save
+      </button>
+      <button *ngIf="otherInfoData.id" ion-button style="color:white; background-color:inherit;" (click)="otherInfoDataUpdate();">
+        Update
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <ion-list class="vital_con_input">
+        <ion-item class="vital_con_item">
+          <ion-label floating style="color: #008ecf">Label</ion-label>
+          <ion-input [(ngModel)]="otherInfoData.label" type="text" value="" placeholder="Label"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating style="color: #008ecf">Notes</ion-label>
+          <ion-input [(ngModel)]="otherInfoData.notes" type="text" value="" placeholder="Notes"></ion-input>
+        </ion-item>
+
+        <div class="toggle-part">
+          <ion-label class="toggle-name">Visible on public profile? </ion-label>
+          <ion-toggle [(ngModel)]="toggleFlag.toggleFlag" class="toggle-btn" (ionChange)="notify()" checked="false"></ion-toggle>
+        </div>
+        <div class="vital-delete">
+          <button *ngIf="otherInfoData.id" ion-button outline round (click)="otherInfoDataDelete();">Delete</button>
+        </div>
+    </ion-list>
+</ion-content>

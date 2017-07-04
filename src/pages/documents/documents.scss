@@ -1,0 +1,52 @@
+page-documents {
+  .button-ios{
+    top: 20px;
+  }
+  .back_profile
+  {
+    background-color: transparent;
+    height: 27px;
+    padding-left: 2px;
+    font-size: 2.8rem;
+    font-size: 2.8rem;
+    width: 100px;
+    padding: 15px 0px;
+    position: absolute;
+    box-shadow: none;
+    z-index: 20;
+
+    .title-btn
+    {
+      width: 100%;
+      text-align: center;
+
+      .toolbar-title
+      {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .all_back{
+      font-size: 20px;
+      position: relative;
+      bottom: 5px;
+      margin-left: -5px;
+      font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+    }
+
+  }
+
+  .item-divider{
+    background-color:lightgray;
+    height:20px;
+  }
+
+  .card-style{
+    border-radius:6px;
+  }
+
+  .icon-style{
+    color: rgb(0, 142, 207);
+  }
+}

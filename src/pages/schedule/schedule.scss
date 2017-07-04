@@ -1,0 +1,32 @@
+page-schedule {
+  .edit-pro-border
+    {
+      border: none !important;
+      box-shadow: none !important;
+      background-color: transparent;
+      .item-inner
+      {
+        border: none !important;
+        box-shadow: none !important;
+        .edit_label
+        {
+          font-size: 15px;
+          padding: 5px;
+        }
+        .edit_input{
+            border: 1px solid #008ecf;
+            border-radius: 10px;
+            padding: 0 10px;
+            background-color: #f3f0f0;
+            color: #008ecf;
+         }
+         .edit-select{
+            border: 1px solid #008ecf;
+            border-radius: 10px;
+            padding-left: 10px;
+            background-color: #f3f0f0;
+            color: #008ecf;
+         }
+      }
+    }
+}

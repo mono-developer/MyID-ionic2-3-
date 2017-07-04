@@ -1,0 +1,78 @@
+page-signup {
+  @media only screen and (max-width: 320px) {
+    .signup-input{ height: 70px;}
+    .passwordDiv{ height: 70px;}
+  }
+  @media only screen and (min-width: 321px) {
+    .signup-input{ height: 85px;}
+    .passwordDiv { height: 85px;}
+    }
+  .main-background{
+      background: url("../assets/image/main_background.png");
+      background-size: 100% 100%;
+      text-align: center;
+
+      .main-logo{
+          width: 56%;
+          margin: auto;
+          margin-top: 10vh;
+      }
+      .email-password-div{
+          margin-top: 3vh;
+          width: 90vw;
+          height: auto;
+          margin-left: 5vw;
+          border: 1px solid white;
+          border-radius: 8px;
+          background-color: rgba(158, 155, 155, 0.52);
+
+          .signup-input{
+              color: white;
+              font-size: 23px;
+              vertical-align: middle;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              padding:10px;
+              border-bottom: 1px solid white;
+
+              .text-input{ text-align: center;}
+          }
+          .passwordDiv
+          {
+            width: 100%;
+
+            .pw-input
+            {
+              width: 50%;
+              height: 100%;
+              float: left;
+              font-size: 3vh;
+              vertical-align: middle;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              border-left: 1px solid white;
+
+              .text-input { text-align: center;   color: white;}
+            }
+          }
+      }
+      .signupDiv
+      {
+        width: 100%;
+        height: auto;
+        margin-top: 16vw;
+
+        .signup-btn{
+            position: relative;
+            width: 80vw;
+            height: 70px;
+            left: 10vw;
+            font-size: 3.5vh;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+      }
+    }
+}

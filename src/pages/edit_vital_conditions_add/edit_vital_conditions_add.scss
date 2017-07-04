@@ -1,0 +1,56 @@
+page-edit-vital-conditions-add {
+
+  .title-btn{
+    color: white;
+    text-align: center;
+  }
+  .title-custom
+  {
+    width: 100%;
+    padding: 0px;
+  }
+.vital_con_input
+{
+  padding: 0 20px;
+  margin-top: 50px;
+  .item-block
+  {
+    border: none !important;
+    background-color: transparent;
+  }
+  .item-block .item-inner
+  {
+        border-bottom: 1px solid #008ecf !important;
+        box-shadow: none !important;
+  }
+  .toggle-part
+  {
+    width: 100%;
+    margin-top: 30px;
+    .toggle-name
+    {
+      width: calc( 50% + 80px);
+      min-width: 180px;
+      text-align: right;
+      float: left;
+      font-size: 20px;
+
+    }
+    .toggle-btn
+    {
+      float: left;
+      margin-top: 9px;
+    }
+  }
+  .vital-delete
+    button{
+      width: 80%;
+      left: 10%;
+      color: #008ecf;
+      border-color: #008ecf;
+      font-size: 22px;
+      height: 60px;
+      top: 30px;
+    }
+  }
+}

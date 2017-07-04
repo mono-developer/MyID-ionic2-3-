@@ -1,0 +1,62 @@
+page-forgot {
+  @media only screen and (max-width: 320px) {
+    .forgot-input{ height: 70px;}
+  }
+  @media only screen and (min-width: 321px) {
+    .forgot-input{ height: 85px;}
+    }
+  .main-background{
+      background: url("../assets/image/main_background.png");
+      background-size: 100% 100%;
+      text-align: center;
+
+      .main-logo{
+          width: 56%;
+          margin: auto;
+          margin-top: 14vh;
+      }
+
+      .email-password-div{
+          margin-top: 15vh;
+          width: 90vw;
+          height: auto;
+          max-height: 100px;
+          margin-left: 5vw;
+          border: 1px solid white;
+          border-radius: 8px;
+          background-color: rgba(158, 155, 155, 0.52);
+
+          .forgot-input{
+              color: white;
+              font-size: 23px;
+              vertical-align: middle;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              padding:10px;
+
+              .text-input
+              {
+                text-align: center;
+                color: white;
+              }
+          }
+      }
+      .forgotDiv
+      {
+        width: 100%;
+        height: auto;
+        margin-top: 28vw;
+
+        .forgot-btn{
+            position: relative;
+            width: 80vw;
+            height: 70px;
+            left: 10vw;
+            font-size: 25px;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+      }
+  }
+}

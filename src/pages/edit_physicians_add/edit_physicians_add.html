@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="title-custom"><div class="title-btn">Physicians</div></ion-title>
+    <ion-buttons end>
+      <button *ngIf="!physicianData.id" ion-button style="color:white; background-color:inherit;" (click)="physicianDataCreate();">
+        Save
+      </button>
+      <button *ngIf="physicianData.id" ion-button style="color:white; background-color:inherit;" (click)="physicianDataUpdate();">
+        Update
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <div style="margin-top: 20px;"></div>
+  <ion-list>
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Name</ion-label>
+      <ion-input [(ngModel)]="physicianData.name" type="text" class="edit_input" placeholder="Enter Name"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Business</ion-label>
+      <ion-input [(ngModel)]="physicianData.business_name" type="text" class="edit_input" placeholder="Enter Business"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Title</ion-label>
+      <ion-input [(ngModel)]="physicianData.title" type="text" class="edit_input" placeholder="Enter Title"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Address</ion-label>
+      <ion-input [(ngModel)]="physicianData.address" type="text" class="edit_input" placeholder="Enter Address"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">City</ion-label>
+      <ion-input [(ngModel)]="physicianData.city" type="text" class="edit_input" placeholder="Enter City"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">State</ion-label>
+      <ion-input [(ngModel)]="physicianData.state" type="text" class="edit_input" placeholder="Enter State"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Country</ion-label>
+      <!-- <ion-input [(ngModel)]="physicianData.country" type="text" class="edit_input" placeholder="Enter Country"></ion-input> -->
+      <ion-select [(ngModel)]="physicianData.country" class="edit-select">
+        <ion-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Phone Number</ion-label>
+      <ion-input [(ngModel)]="physicianData.phone_number" type="tel" class="edit_input" placeholder="Enter PhoneNumber"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">ZIP Code</ion-label>
+      <ion-input [(ngModel)]="physicianData.zip_code" type="text" class="edit_input" placeholder="Enter ZIP Code"></ion-input>
+    </ion-item>
+
+    <div class="toggle-part">
+      <ion-label class="toggle-name">Visible on public profile? </ion-label>
+      <ion-toggle [(ngModel)]="toggleFlag.toggleFlag" class="toggle-btn" (ionChange)="notify()" checked="false"></ion-toggle>
+    </div>
+
+    <div class="emergency-delete">
+      <button  *ngIf="physicianData.id" ion-button outline round (click)="physicianDataDelete();">Delete</button>
+    </div>
+
+  </ion-list>
+</ion-content>

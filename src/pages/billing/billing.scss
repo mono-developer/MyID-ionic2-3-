@@ -1,0 +1,48 @@
+page-billing {
+  .avatar-cell
+  {
+    width: 100%;
+    float: left;
+  }
+  .sheet-btn{
+    font-size: 20px;
+    width: 10%;
+    float: left;
+    position: absolute;
+    margin-top: 3vh;
+  }
+    .add-profile-icon{
+        background: url(../assets/image/add_profile_icon.png);
+        width: 37px;
+        background-size: 100% 37px;
+        background-position: center;
+        float: right;
+        margin-right: 8px;
+    }
+    .response-android{
+      text-align: center;
+      width: 100%
+    }
+    .separator{
+        width: 75%;
+        height: 1px;
+        background-color: gray;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+
+    .add-profile-btn{
+      width: 80vw;
+      height: 7vh;
+      background-color: initial;
+      border-color: #008ecf;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 3.5vh;
+      font-size: 3.5vh;
+      text-transform: capitalize;
+      margin-left: 10vw;
+      color: #008ecf;
+      margin-bottom: 20px;
+    }
+}

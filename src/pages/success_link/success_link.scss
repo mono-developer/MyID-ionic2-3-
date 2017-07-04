@@ -1,0 +1,97 @@
+page-success-link {
+  .button-ios{
+    top: 20px;
+  }
+  .back_profile
+  {
+    background-color: transparent;
+    height: 27px;
+    padding-left: 2px;
+    font-size: 2.8rem;
+    font-size: 2.8rem;
+    width: 100px;
+    padding: 15px 0px;
+    position: absolute;
+    box-shadow: none;
+    z-index: 20;
+
+    .title-btn
+    {
+      width: 100%;
+      text-align: center;
+
+      .toolbar-title
+      {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .all_back{
+      font-size: 20px;
+      position: relative;
+      bottom: 5px;
+      margin-left: -5px;
+      font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+    }
+
+  }
+
+  .success-image{
+    width: 60vw;
+    margin-left: 20vw;
+    margin-top: 15vw;
+  }
+
+  .success-text{
+    color: white;
+    font-size: 6vw;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .down-arrow-icon{
+    text-align: center;
+    font-size: 8vw;
+    margin-top: 15px;
+    color:white;
+  }
+
+  .label-your-id{
+    color: white;
+    font-size: 5vw;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .describe-text{
+    color: white;
+    font-size: 4.5vw;
+    text-align: center;
+    margin-top: 5px;
+    width: 70vw;
+    margin-left: 15vw;
+  }
+
+  .input-label{
+    background-color: white;
+    width: 60vw;
+    margin-left: 20vw;
+    margin-top: 20px;
+    padding-left:15px;
+  }
+
+  .save-btn
+      button{
+        width: 60%;
+        left: 20%;
+        color: white;
+        border-color: white;
+        font-size: 18px;
+        height: 48px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button class="back_profile" (click)="goBack();" *ngIf="!slug">
+      <ion-icon name="ios-arrow-back">
+        <span class="all_back">All Profile</span>
+      </ion-icon>
+    </button>
+    <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+
+    <ion-buttons end>
+      <button ion-button style="color:white; background-color:inherit;" (click)="selectOptions();">
+        <ion-icon name="more" style="font-size:30px;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-alpha-scroll *ngIf="documents"
+      [listData]="documents"
+      key="name"
+      [itemTemplate]="alphaScrollItemTemplate"
+      [currentPageClass]="currentPageClass"
+      [triggerChange]="triggerAlphaScrollChange">
+    </ion-alpha-scroll>
+</ion-content>

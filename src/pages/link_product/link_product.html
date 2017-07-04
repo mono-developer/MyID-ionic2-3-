@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button class="back_profile" (click)="goBack();">
+      <ion-icon name="ios-arrow-back">
+        <span class="all_back">All Profile</span>
+      </ion-icon>
+    </button>
+    <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="scan-btn" (click)="scan();">
+      <div class="scan-label">Scan to link</div>
+      <img src="assets/image/qr.png" class="scan-image"/>
+  </div>
+
+  <div class="or-div">
+    <div class="or-separator"></div>
+    <div class="or-label">OR</div>
+    <div class="or-separator"></div>
+  </div>
+
+  <div class="link-info-div">
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">ID #</ion-label>
+      <ion-input [(ngModel)]="link_info.id" type="number" class="edit_input" placeholder="XXXXXXX"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">PIN #</ion-label>
+      <ion-input [(ngModel)]="link_info.pin" type="number" class="edit_input" placeholder="XXXX"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="link-btn">
+    <button ion-button outline round (click)="linkToProfile();">Link To Profile Manually</button>
+  </div>
+</ion-content>

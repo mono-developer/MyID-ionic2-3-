@@ -1,0 +1,20 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content class="main-background">
+    <img src="assets/image/login_logo.png" class="main-logo"/>
+    <div class="email-password-div">
+        <ion-input type="email" value="" class="forgot-input" placeholder="Email" [(ngModel)]="forgot.email"></ion-input>
+    </div>
+
+    <div class="forgotDiv">
+        <button ion-button block="true" outline="true" color="light" round class="forgot-btn" (click)="doSubmit();">Submit</button>
+        <button ion-button block="true" outline="true" color="light" clear class="forgot-btn" (click)="backHome();">Cancel</button>
+    </div>
+</ion-content>

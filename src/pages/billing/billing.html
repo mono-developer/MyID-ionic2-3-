@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="response-android"><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color:rgb(228,228,228);">
+    <ion-card *ngFor="let profile of profiles" style="border-radius:6px;">
+      <ion-item *ngIf="profile.subscription_type == 'Premium'" class="avatar-cell">
+          <ion-avatar item-left>
+            <img [src]="profile.person.image_url.thumb" style="width:22vw; height:22vw;" onError="this.src='/assets/image/default_avatar.png';"/>
+          </ion-avatar>
+            <h2 style="font-size:5vw;">{{profile.person.first_name}} {{profile.person.last_name}}</h2>
+            <div class="separator"></div>
+            <p> Plus will expire on {{ profile.premium_expires | date: 'MM/dd/yyyy'}}</p>
+      </ion-item>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,26 @@
+page-settings {
+    .logout-btn{
+        height: 9vh;
+        border-color: rgb(0, 142, 207);
+        margin-left: 5vw;
+        color: rgb(0, 142, 207);
+        width: 90%;
+        margin-top: 40px;
+    }
+    .title{
+      width: 100%;
+      text-align: left;
+    }
+    .setting_btn{
+      margin-top: 5vh;
+      height: 50px;
+       p {
+         color: gray;
+         text-transform: none;
+       }
+       .icon{
+         margin-right: -5px;
+         color: gray;
+       }
+    }
+}

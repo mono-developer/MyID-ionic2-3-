@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title><div style="color:white;">Medicine</div></ion-title>
+
+    <ion-buttons end>
+      <button ion-button style="color:white; background-color:inherit;" (click)="gotoSchedule();">
+        Next
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <ion-list>
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Medication Name</ion-label>
+      <ion-input [(ngModel)]="medData.name" type="text" class="edit_input" placeholder="Enter Medication Name"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Dosage</ion-label>
+      <ion-input [(ngModel)]="medData.dosage" type="number" class="edit_input" placeholder="Enter Dosage"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Unit</ion-label>
+      <ion-input [(ngModel)]="medData.unit" type="text" class="edit_input" placeholder="Select Unit"></ion-input>
+    </ion-item> -->
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Unit</ion-label>
+      <ion-select [(ngModel)]="medData.unit" class="edit-select">
+        <ion-option *ngFor="let unit of units" [value]="unit.name">{{unit.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Appearance Shape</ion-label>
+      <ion-select [(ngModel)]="medData.shape" class="edit-select">
+        <ion-option *ngFor="let shape of shapes" [value]="shape.name">{{shape.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Appearance Color</ion-label>
+      <ion-select [(ngModel)]="medData.color" class="edit-select">
+        <ion-option *ngFor="let color of colors" [value]="color.name">{{color.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

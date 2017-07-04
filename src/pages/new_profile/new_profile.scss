@@ -1,0 +1,33 @@
+page-newProfile {
+    .cancel-btn{
+      background-color:inherit;
+    }
+
+    .save-btn{
+      background-color:inherit;
+      color:white;
+    }
+
+    .avatar-div{
+      width:100%;
+      height:50vw;
+      background-color: rgb(0, 142, 207);
+    }
+
+    .avatar-icon{
+        position: absolute;
+        width: 38vw;
+        height: 38vw;
+        top: 5vw;
+        left: 30vw;
+        border-radius:19vw;
+    }
+
+    .avatar-plus-icon{
+        position: absolute;
+        width: 14vw;
+        height: 14vw;
+        top: 34vw;
+        left: 42vw;
+    }
+}

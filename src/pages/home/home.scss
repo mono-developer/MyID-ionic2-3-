@@ -1,0 +1,32 @@
+page-home {
+    .main-background{
+        background: url("../assets/image/main_background.png");
+        background-size: 100% 100%;
+        text-align: center;
+
+        img{
+            width: 56%;
+            margin: auto;
+            margin-top: 14vh;
+        }
+        .signDiv
+        {
+          width: 100%;
+          height: auto;
+          position: absolute;
+          bottom: 6vh;
+
+          .sign-btn{
+              position: relative;
+              width: 80vw;
+              height: 10vh;
+              left: 10vw;
+              font-size: 3.5vh;
+              text-transform: capitalize;
+              font-weight: 400;
+          }
+        }
+
+
+    }
+}

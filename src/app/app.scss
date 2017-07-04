@@ -1,0 +1,163 @@
+.ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child .scroll-content{
+  padding-top: 0px !important;
+}
+ion-content.statusbar-padding:first-child .scroll-content{
+  padding-top: 0px !important;
+}
+.text-input::-moz-placeholder {
+  color: white;
+}
+
+.text-input:-ms-input-placeholder {
+  color: white;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: white;
+}
+
+.sidemenu-background{
+    width:100%;
+}
+
+.sidemenu-logo{
+    position: absolute;
+    top: 12px;
+    width: 36%;
+    margin-left: 32%;
+    display: block
+}
+
+.sidemenu-mail{
+    color: white;
+    position: absolute;
+    top: 55px;
+    font-size: 15px;
+    width: 100%;
+    /* margin-left: 10%; */
+    text-align: center;
+}
+
+.sidemenu-icon{
+    height:30px;
+    float:left;
+}
+
+.sidemenu-button{
+    display:flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    width:100%;
+    height:75px;
+}
+
+.sidemenu-button .item-inner{
+  border:none !important;
+}
+
+.sidemenu-title{
+  margin-top: 5px;
+  padding-left: 50px;
+}
+
+.sidemenu-bottom-logo{
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 25%;
+}
+
+.toolbar-background {
+  background-color: rgb(0, 142, 207);
+}
+
+.back-button{
+  color:white;
+}
+.ion-title-custom
+{
+  padding-left: 0;
+  padding-right: 0;
+}
+.bg2
+{
+   background-color: #e6e6e6;
+
+}
+.add_btn
+{
+  color: white;
+  font-size: 25px;
+}
+.title-btn{
+  color: white;
+  text-align: center;
+}
+.title-custom
+{
+  width: 100% !important;
+  padding: 0px !important;
+}
+.popover-content{
+  width: 150px !important;
+  box-shadow: -1px 2px 35px #565555;
+    ion-list{
+      margin-bottom: 0px !important;
+    }
+    .item-inner{
+      background-image: none !important;
+      text-align: center;
+      padding-right: 0px !important;
+
+  }
+}
+
+.text-input::-moz-placeholder {
+  color: lightgray;
+}
+
+.text-input:-ms-input-placeholder {
+  color: lightgray;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: lightgray;
+}
+
+.update-txt{
+  text-align: center;
+  color: gray;
+}
+.arrow{
+  position: absolute;
+  width: 35px;
+  display: block;
+  right: 15px;
+  top: 10px;
+}
+.toolbar-title-md{
+  text-align: center !important;
+}
+
+.title-img{
+   .action-sheet-title {// if you want the image on the left of the title
+  // background:url('path-to-image-here') no-repeat;
+    height: 50px;
+    border: none;
+    font-size: 17px;
+    color: #353535;
+    line-height: 0px;
+  }
+  .action-sheet-sub-title{
+    border-bottom: 1px solid gray;
+    margin-top: -21px;
+    padding-bottom: 10px
+
+  }
+}
+ .alert-position{
+  padding-top: 35vh !important;
+}

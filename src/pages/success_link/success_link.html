@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button class="add_btn" (click)="gotoLinkedProduct();">
+        <ion-icon name="ios-add-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color:rgb(0, 202, 89)">
+  <img class="success-image" src="assets/image/check.png" />
+  <div class="success-text">Successfully Linked</div>
+  <div style="text-align:center;">
+    <ion-icon name="md-arrow-dropdown-circle" class="down-arrow-icon"></ion-icon>
+  </div>
+  <div class="label-your-id">Label Your MyID</div>
+  <div class="describe-text">Describte your MyID Product.\nYou could say something like Blue Band, ...</div>
+
+  <ion-input class="input-label" [(ngModel)]="link.name"></ion-input>
+
+  <div class="save-btn">
+    <button ion-button outline round (click)="updateLabel();">Save</button>
+  </div>
+</ion-content>

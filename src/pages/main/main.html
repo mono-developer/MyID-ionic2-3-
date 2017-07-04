@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="response-android"><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+
+    <ion-buttons end>
+      <button ion-button class="add-profile-icon" (click)="addProfile();">
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color:rgb(228,228,228);">
+    <ion-card *ngFor="let profile of profiles" style="border-radius:6px;">
+      <ion-item class="avatar-cell" (click)="gotoProfile($event, profile);">
+          <ion-avatar item-left>
+            <img [src]="profile.person.image_url.thumb" style="width:22vw; height:22vw;" onError="this.src='/assets/image/default_avatar.png';"/>
+          </ion-avatar>
+            <h2 style="font-size:5vw;">{{profile.person.first_name}} {{profile.person.last_name}}</h2>
+            <div class="separator"></div>
+            <p *ngIf="profile.subscription_type=='Normal'">Standard Account</p>
+            <p *ngIf="profile.subscription_type!='Normal'" class="plus">PLUS</p>
+      </ion-item>
+      <button ion-button clear item-end class="sheet-btn" (click)="presentActionSheet($event, profile)"><ion-icon ios="md-more" md="md-more"></ion-icon></button>
+    </ion-card>
+
+    <button ion-button class="add-profile-btn" (click)="addProfile();"><img src="assets/image/add_profile_blue_icon.png" style="height:30px;"/>&nbsp;Add Profile</button>
+</ion-content>

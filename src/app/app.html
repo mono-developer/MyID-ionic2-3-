@@ -1,0 +1,29 @@
+<ion-menu [content]="content">
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content>
+    <img src="assets/image/sidemenu_background.png" class="sidemenu-background"/>
+    <img src="assets/image/sidemenu_logo.png" class="sidemenu-logo"/>
+    <div class="sidemenu-mail">{{email}}</div>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="sidemenu-button">
+        <img src="assets/image/users.png" *ngIf="p.title=='Manage Profiles'" class="sidemenu-icon"/>
+        <img src="assets/image/pill_icon.png" *ngIf="p.title=='Pill Reminders'" class="sidemenu-icon"/>
+        <img src="assets/image/sharing.png" *ngIf="p.title=='Sharing'" class="sidemenu-icon"/>
+        <img src="assets/image/review.png" *ngIf="p.title=='Review Community'" class="sidemenu-icon"/>
+        <img src="assets/image/setting.png" *ngIf="p.title=='Account Setting'" class="sidemenu-icon"/>
+        <div class="sidemenu-title">{{p.title}}</div>
+      </button>
+    </ion-list>
+
+    <img src="assets/image/sidemenu_bottom_logo.png" class="sidemenu-bottom-logo"/>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

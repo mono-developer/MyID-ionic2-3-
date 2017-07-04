@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title><div style="color:white;">Refill Reminder</div></ion-title>
+
+    <ion-buttons end>
+      <button ion-button style="color:white; background-color:inherit;" (click)="save();">
+        Done
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Pills Left</ion-label>
+      <ion-input [(ngModel)]="refillData.left" type="number" class="edit_input" placeholder="Enter the number of pills left"></ion-input>
+    </ion-item>
+
+    <div class="toggle-part">
+      <ion-label class="toggle-name">Refill Reminder </ion-label>
+      <ion-toggle [(ngModel)]="refillData.reminder" class="toggle-btn" checked="false"></ion-toggle>
+    </div>
+  </ion-list>
+</ion-content>

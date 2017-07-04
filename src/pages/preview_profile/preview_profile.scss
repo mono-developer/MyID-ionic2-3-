@@ -1,0 +1,136 @@
+page-preview-profile {
+
+  .button-ios{
+    top: 20px;
+  }
+  .back_profile
+  {
+    background-color: transparent;
+    height: 27px;
+    padding-left: 2px;
+    font-size: 2.8rem;
+    font-size: 2.8rem;
+    width: 100px;
+    padding: 15px 0px;
+    position: absolute;
+    box-shadow: none;
+    z-index: 20;
+
+    .title-btn
+    {
+      width: 100%;
+      text-align: center;
+
+      .toolbar-title
+      {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .all_back{
+      font-size: 20px;
+      position: relative;
+      bottom: 5px;
+      margin-left: -5px;
+      font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+    }
+
+  }
+  
+    .user-info-div{
+        background-color: lightgray;
+        height: 36vw;
+        width: 100vw;
+        z-index: 100;
+
+        .username-text{
+          padding-top: 6vw;
+          padding-left: 7vw;
+          font-size: 6vw;
+          font-weight: bold;
+        }
+
+        .user-description-text{
+          font-size: 4.5vw;
+          margin-top: 2vw;
+          padding-left: 7vw;
+          width: 64vw;
+        }
+        .separator{
+          width: 60%;
+          height: 1px;
+          background-color: gray;
+          margin-top: 2vw;
+          margin-left: 5vw;
+        }
+
+        .avatar-icon{
+          width: 26vw;
+          position: absolute;
+          top: 3vw;
+          right: 4vw;
+          border-radius:13vw;
+          border: 2px solid #008ecf;
+        }
+
+        .avatar-plus-icon{
+          width: 12vw;
+          position: absolute;
+          top: 21vw;
+          right: 11vw;
+        }
+    }
+
+    .section-header{
+      background-color: #008ecf;
+      color: white;
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      text-align: center;
+      justify-content: center;
+      vertical-align: middle;
+      align-items: center;
+      display: flex;
+    }
+
+    .updated-date{
+      background-color: rgb(45, 115, 186);
+      width:100%;
+      height:20px;
+      color:white;
+      font-size: 12px;
+      text-align: center;
+      justify-content: center;
+      vertical-align: middle;
+      align-items: center;
+      display: flex;
+    }
+
+    .vital-content{
+      color:gray;
+    }
+
+    .condition-div{
+      text-align: center;
+    }
+
+    .data-font{
+      font-weight:bold;
+    }
+    .border{
+      position: relative;
+      width: 90%;
+      left: 5%;
+      border: 1px solid gray;
+    }
+    .back_btn{
+      position: absolute;
+      color: white;
+      background-color: inherit;
+      height: 27px;
+      box-shadow: none;
+      margin-left: -10px;
+    }
+}

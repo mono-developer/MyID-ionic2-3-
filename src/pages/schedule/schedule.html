@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color:white;" name="menu"></ion-icon>
+    </button>
+
+    <ion-title><div style="color:white;">Schedule</div></ion-title>
+
+    <ion-buttons end>
+      <button ion-button style="color:white; background-color:inherit;" (click)="gotoRefillReminder();">
+        Next
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <ion-list>
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Frequency</ion-label>
+      <ion-select [(ngModel)]="scheduleData.frequency" class="edit-select">
+        <ion-option *ngFor="let frequency of frequencies" [value]="frequency.value">{{frequency.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">How Many Times a Day?</ion-label>
+      <ion-input [(ngModel)]="scheduleData.times" type="number" class="edit_input" placeholder="Enter how many times a day"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Start Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleData.start_time" displayFormat="hh:mm A" class="edit-select" value="08:00 AM"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">Start Date</ion-label>
+      <ion-datetime [(ngModel)]="scheduleData.start_date" type="date" class="edit-select"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">End Date</ion-label>
+      <ion-datetime [(ngModel)]="scheduleData.end_date" type="date" class="edit-select"></ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>

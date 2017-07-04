@@ -1,0 +1,66 @@
+page-qr-wallpaper {
+
+  .button-ios{
+    top: 20px;
+  }
+  .back_profile
+  {
+    background-color: transparent;
+    height: 27px;
+    padding-left: 2px;
+    font-size: 2.8rem;
+    font-size: 2.8rem;
+    width: 100px;
+    padding: 15px 0px;
+    position: absolute;
+    box-shadow: none;
+    z-index: 20;
+
+    .title-btn
+    {
+      width: 100%;
+      text-align: center;
+
+      .toolbar-title
+      {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .all_back{
+      font-size: 20px;
+      position: relative;
+      bottom: 5px;
+      margin-left: -5px;
+      font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+    }
+
+  }
+
+  .phone{
+    height: 60vh;
+  }
+
+  .qr-description{
+    font-size: 2.5vh;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .select-background{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 2.2vh;
+  }
+
+  .camera-library-div{
+    height: 12vh;
+    align-items: center;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+  }
+}

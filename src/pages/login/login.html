@@ -1,0 +1,15 @@
+
+
+<ion-content class="main-background">
+    <img src="assets/image/login_logo.png" class="main-logo"/>
+    <div class="email-password-div">
+        <ion-input type="email" value="" class="login-input" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+        <ion-input type="password" value="" class="login-input" placeholder="Password" [(ngModel)]="user.password" style="border-bottom: none;"></ion-input>
+    </div>
+
+    <button class="forgot-div" (click)="gotoForgotPage();">Forgot Password</button>
+    <div class="loginDiv">
+        <button ion-button block="true" outline="true" color="light" round class="login-btn" (click)="doLogin();">Submit</button>
+        <button ion-button block="true" outline="true" color="light" clear class="login-btn" (click)="backHome();">Cancel</button>
+    </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="title-custom"><div class="title-btn">VITAL CONDITIONS</div></ion-title>
+    <ion-buttons end>
+      <button ion-button class="add_btn" (click)="gotoEditVitalConditionsAdd($event,vitalData);">
+        <ion-icon name="ios-add-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <ion-card class="data-font" *ngFor="let vitalData of vitalDatas" (click)="gotoEditVitalConditionsAdd($event, vitalData);">
+    <ion-item>
+        <ion-row class="vital-content">
+            <ion-col col-4><div class="condition-div">Condition:</div></ion-col>
+            <ion-col><div class="condition-div">Note:</div></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4><div class="condition-div">{{vitalData.name}}</div></ion-col>
+            <ion-col><div class="condition-div">{{vitalData.notes}}</div></ion-col>
+        </ion-row>
+    </ion-item>
+
+  </ion-card>
+
+  <p  *ngIf="updated" class="update-txt">Last updated {{updated | date: 'MM/dd/yyyy'}}</p>
+  <div *ngIf="!updated">
+    <p class="update-txt" style="font-size: 20px;">Add Vital Condition</p>
+    <img src="assets/image/arrow.png" class="arrow"/>
+  </div>
+</ion-content>

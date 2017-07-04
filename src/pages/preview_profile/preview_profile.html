@@ -1,0 +1,373 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button class="back_profile" (click)="goBack();">
+      <ion-icon name="ios-arrow-back">
+        <span class="all_back">All Profile</span>
+      </ion-icon>
+    </button>
+    <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
+    <ion-buttons end>
+      <button *ngIf="profile.data.subscription_type=='Premium'" ion-button style="color:white; background-color:inherit;" (click)="gotoShareProfile();">
+        Share
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!-- Personal Profile -->
+<ion-content>
+    <div class="user-info-div">
+        <div class="username-text">{{personalData.first_name}} {{personalData.last_name}}</div>
+        <div class="separator"></div>
+        <div class="user-description-text">{{age}} years old {{personalData.gender}} from {{profileData.city}}, {{profileData.state}}</div>
+        <img [src]="profile.data.person.image_url.thumb" class="avatar-icon" onError="this.src='/assets/image/default_avatar.png';"/>
+    </div>
+
+<!-- Vital Medical Coditions Data -->
+    <div class="section-header">
+      <ion-icon name="ios-warning-outline">&nbsp;Vital Medical Conditions</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="vitalUpdated">Last updated {{ vitalUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div class="data-font" center *ngFor="let vitalItem of vitalData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Condition:</div></ion-col>
+          <ion-col><div class="condition-div">Note:</div></ion-col>
+      </ion-row>
+      <ion-row center>
+          <ion-col><div class="condition-div">{{vitalItem.name}}</div></ion-col>
+          <ion-col><div class="condition-div">{{vitalItem.notes}}</div></ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!vitalUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Vital Medical Conditions</div></ion-col>
+    </ion-row>
+
+<!-- Personal Updated -->
+    <div class="section-header">
+      <ion-icon name="ios-contact-outline">&nbsp;Personal Information</ion-icon>
+    </div>
+     <div class="updated-date">
+       <p *ngIf="personalUpdated">Last updated {{ personalUpdated | date: 'MM/dd/yyyy' }}</p>
+     </div>
+    <ion-row class="vital-content" center>
+        <ion-col><div class="condition-div">Name:</div></ion-col>
+        <ion-col><div class="condition-div">PHONE:</div></ion-col>
+    </ion-row>
+    <ion-row center class="data-font">
+        <ion-col><div class="condition-div">{{personalData.first_name}}</div></ion-col>
+        <ion-col>
+          <div *ngIf="personalData.phone_number" class="condition-div">{{personalData.phone_number}}</div>
+          <div *ngIf="!personalData.phone_number" class="condition-div">-</div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="vital-content" center>
+        <ion-col><div class="condition-div">BIRTHDATE:</div></ion-col>
+        <ion-col><div class="condition-div">GENDER:</div></ion-col>
+    </ion-row>
+    <ion-row center class="data-font">
+        <ion-col><div class="condition-div">{{personalData.birth_date}}</div></ion-col>
+        <ion-col><div class="condition-div">{{personalData.gender}}</div></ion-col>
+    </ion-row>
+    <ion-row class="vital-content" center>
+        <ion-col><div class="condition-div">WEIGHT:</div></ion-col>
+        <ion-col><div class="condition-div">HEIGHT:</div></ion-col>
+    </ion-row>
+    <ion-row center class="data-font">
+        <ion-col>
+          <div *ngIf="personalData.weight" class="condition-div">{{personalData.weight}}</div>
+          <div *ngIf="!personalData.weight" class="condition-div">-</div>
+        </ion-col>
+        <ion-col>
+          <div *ngIf="personalData.height" class="condition-div">{{personalData.height}}</div>
+          <div *ngIf="!personalData.height" class="condition-div">-</div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="vital-content" center>
+        <ion-col><div class="condition-div">Hair Color</div></ion-col>
+        <ion-col><div class="condition-div">Eye Color</div></ion-col>
+    </ion-row>
+    <ion-row center class="data-font">
+        <ion-col>
+          <div *ngIf="personalData.hair" class="condition-div">{{personalData.hair}}</div>
+          <div *ngIf="!personalData.hair" class="condition-div">-</div>
+        </ion-col>
+        <ion-col>
+          <div *ngIf="personalData.eye_color" class="condition-div">{{personalData.eye_color}}</div>
+          <div *ngIf="!personalData.eye_color" class="condition-div">-</div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="vital-content" center>
+        <ion-col><div class="condition-div">BLOOD TYPE:</div></ion-col>
+        <ion-col><div class="condition-div">ORGAN DONOR:</div></ion-col>
+    </ion-row>
+    <ion-row center class="data-font">
+        <ion-col>
+          <div *ngIf="personalData.blood_type" class="condition-div">{{personalData.blood_type}}</div>
+          <div *ngIf="!personalData.blood_type" class="condition-div">-</div>
+        </ion-col>
+        <ion-col><div class="condition-div">{{donor}}</div></ion-col>
+    </ion-row>
+    <ion-row *ngIf="!personalUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Personal Data</div></ion-col>
+    </ion-row>
+
+<!-- Emergency Contacts -->
+    <div class="section-header">
+      <ion-icon name="ios-call-outline">&nbsp;Emergency Contacts</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="emergencyUpdated">Last updated {{ emergencyUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div *ngFor="let emergencyItem of emergencyData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Name:</div></ion-col>
+          <ion-col><div class="condition-div">Relationship:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col><div class="condition-div">{{emergencyItem.name}}</div></ion-col>
+          <ion-col><div class="condition-div">{{emergencyItem.relationship}}</div></ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Phone:</div></ion-col>
+          <ion-col><div class="condition-div">Alt-Phone:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="emergencyItem.phone_number" class="condition-div">{{emergencyItem.phone_number}}</div>
+            <div *ngIf="!emergencyItem.phone_number" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="emergencyItem.alt_phone_number" class="condition-div">{{emergencyItem.alt_phone_number}}</div>
+            <div *ngIf="!emergencyItem.alt_phone_number" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Email:</div></ion-col>
+          <ion-col><div class="condition-div"></div></ion-col>
+      </ion-row>
+      <ion-row class="data-font" center>
+          <ion-col>
+            <div *ngIf="emergencyItem.email" class="condition-div">{{emergencyItem.email}}</div>
+            <div *ngIf="!emergencyItem.email" class="condition-div">-</div>
+          </ion-col>
+          <ion-col><div class="condition-div"></div></ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!emergencyUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Emergency Contacts</div></ion-col>
+    </ion-row>
+
+<!-- Allergies Data -->
+    <div class="section-header">
+      <ion-icon name="ios-eye-outline">&nbsp;Allergies</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="allergyUpdated">Last updated {{ allergyUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div *ngFor="let allergyItem of allergyData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Name:</div></ion-col>
+          <ion-col><div class="condition-div">Notes:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col><div class="condition-div">{{allergyItem.name}}</div></ion-col>
+          <ion-col><div class="condition-div">{{allergyItem.notes}}</div></ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!allergyUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Allergies</div></ion-col>
+    </ion-row>
+
+<!-- Medication Data -->
+    <div class="section-header">
+      <ion-icon name="ios-heart-outline">&nbsp;Medications</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="medicationUpdated">Last updated {{ medicationUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div *ngFor="let medicationItem of medicationData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Name:</div></ion-col>
+          <ion-col><div class="condition-div">Notes:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col><div class="condition-div">{{medicationItem.name}}</div></ion-col>
+          <ion-col><div class="condition-div">{{medicationItem.notes}}</div></ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Dosage:</div></ion-col>
+          <ion-col><div class="condition-div">Frequency:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="medicationItem.dosage" class="condition-div">{{medicationItem.dosage}}</div>
+            <div *ngIf="!medicationItem.dosage" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="medicationItem.frequency" class="condition-div">{{medicationItem.frequency}}</div>
+            <div *ngIf="!medicationItem.frequency" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!medicationUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Medications</div></ion-col>
+    </ion-row>
+
+<!-- Physicians -->
+    <div class="section-header">
+      <ion-icon name="ios-medkit-outline">&nbsp;Physicians</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="physicianUpdated">Last updated {{ physicianUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div *ngFor="let physicianItem of physicianData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Name:</div></ion-col>
+          <ion-col><div class="condition-div">Title:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="physicianItem.name" class="condition-div">{{physicianItem.name}}</div>
+            <div *ngIf="!physicianItem.name" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="physicianItem.title" class="condition-div">{{physicianItem.title}}</div>
+            <div *ngIf="!physicianItem.title" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Business:</div></ion-col>
+          <ion-col><div class="condition-div">Address:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="physicianItem.business_name" class="condition-div">{{physicianItem.business_name}}</div>
+            <div *ngIf="!physicianItem.business_name" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="physicianItem.address" class="condition-div">{{physicianItem.address}}</div>
+            <div *ngIf="!physicianItem.address" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">State:</div></ion-col>
+          <ion-col><div class="condition-div">Phone:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="physicianItem.state" class="condition-div">{{physicianItem.state}}</div>
+            <div *ngIf="!physicianItem.state" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="physicianItem.phone_number" class="condition-div">{{physicianItem.phone_number}}</div>
+            <div *ngIf="!physicianItem.phone_number" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Zip Code:</div></ion-col>
+          <ion-col><div class="condition-div">Country:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col>
+            <div *ngIf="physicianItem.zip_code" class="condition-div">{{physicianItem.zip_code}}</div>
+            <div *ngIf="!physicianItem.zip_code" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="physicianItem.country_name" class="condition-div">{{physicianItem.country_name}}</div>
+            <div *ngIf="!physicianItem.country_name" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!physicianUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Physicians</div></ion-col>
+    </ion-row>
+
+    <div class="section-header">
+      <ion-icon name="ios-umbrella-outline">&nbsp;Insurance Information</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="insuranceUpdated">Last updated {{ insuranceUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div class="data-font" center *ngFor="let insuranceItem of insuranceData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Provider:</div></ion-col>
+          <ion-col><div class="condition-div">ID #:</div></ion-col>
+      </ion-row>
+      <ion-row center>
+          <ion-col><div class="condition-div">{{insuranceItem.insurance_provider}}</div></ion-col>
+          <ion-col><div class="condition-div">{{insuranceItem.id_number}}</div></ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Group#:</div></ion-col>
+          <ion-col><div class="condition-div">Bin#:</div></ion-col>
+      </ion-row>
+      <ion-row center>
+          <ion-col>
+            <div *ngIf="insuranceItem.group_number" class="condition-div">{{insuranceItem.group_number}}</div>
+            <div *ngIf="!insuranceItem.group_number" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="insuranceItem.bin_number" class="condition-div">{{insuranceItem.bin_number}}</div>
+            <div *ngIf="!insuranceItem.bin_number" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Deductible:</div></ion-col>
+          <ion-col><div class="condition-div">Phone:</div></ion-col>
+      </ion-row>
+      <ion-row center>
+          <ion-col>
+            <div *ngIf="insuranceItem.deductible" class="condition-div">{{insuranceItem.deductible}}</div>
+            <div *ngIf="!insuranceItem.deductible" class="condition-div">-</div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="insuranceItem.customer_service_phone_number" class="condition-div">{{insuranceItem.customer_service_phone_number}}</div>
+            <div *ngIf="!insuranceItem.customer_service_phone_number" class="condition-div">-</div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Notes:</div></ion-col>
+          <ion-col><div class="condition-div"></div></ion-col>
+      </ion-row>
+      <ion-row center>
+          <ion-col>
+            <div *ngIf="insuranceItem.notes" class="condition-div">{{insuranceItem.notes}}</div>
+            <div *ngIf="!insuranceItem.notes" class="condition-div">-</div>
+          </ion-col>
+          <ion-col><div class="condition-div"></div></ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!insuranceUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Insurance Information</div></ion-col>
+    </ion-row>
+
+<!-- Other Information Data -->
+    <div class="section-header">
+      <ion-icon name="ios-information-circle-outline">&nbsp;Ohter Information</ion-icon>
+    </div>
+    <div class="updated-date">
+      <p *ngIf="otherinforUpdated">Last updated {{ otherinforUpdated | date: 'MM/dd/yyyy' }}</p>
+    </div>
+    <div *ngFor="let otherinfoItem of otherinfoData">
+      <ion-row class="vital-content" center>
+          <ion-col><div class="condition-div">Label:</div></ion-col>
+          <ion-col><div class="condition-div">Notes:</div></ion-col>
+      </ion-row>
+      <ion-row center class="data-font">
+          <ion-col><div class="condition-div">{{otherinfoItem.label}}</div></ion-col>
+          <ion-col><div class="condition-div">{{otherinfoItem.notes}}</div></ion-col>
+      </ion-row>
+      <div class="border"></div>
+    </div>
+    <ion-row *ngIf="!otherinforUpdated" style="padding:15px;">
+        <ion-col><div class="condition-div">No Known Other Information</div></ion-col>
+    </ion-row>
+    <div style="margin-bottom: 30px;"></div>

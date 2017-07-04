@@ -1,0 +1,25 @@
+page-passcode {
+  .title{
+    width: 100%;
+    text-align: left;
+    color: rgb(0, 142, 207);
+  }
+  .setting_btn{
+    height: 50px;
+     p {
+       color: gray;
+       text-transform: none;
+       color: rgb(0, 142, 207);
+     }
+     .icon{
+       margin-right: -5px;
+       color: gray;
+     }
+  }
+  .details{
+    width: 90%;
+    left: 5%;
+    position: relative;
+    color: gray;
+  }
+}

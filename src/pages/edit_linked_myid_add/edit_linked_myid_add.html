@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="title-custom"><div class="title-btn">LINKED MYID PRODUCTS</div></ion-title>
+    <ion-buttons end>
+      <button ion-button style="color:white; background-color:inherit;" (click)="save();">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg2">
+  <div style="margin-top: 20px;"></div>
+  <ion-list>
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">LABEL</ion-label>
+      <ion-input [(ngModel)] ="link.name" type="text" class="edit_input" placeholder="Enter label"></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">PIN #</ion-label>
+      <ion-input [(ngModel)] ="link.pin" type="text" class="edit_input" disabled></ion-input>
+    </ion-item>
+
+    <ion-item class="edit-pro-border">
+      <ion-label stacked class="edit_label">ID #</ion-label>
+      <ion-input [(ngModel)] ="link.serial" type="tel" class="edit_input" placeholder="Enter PhoneNumber" disabled></ion-input>
+    </ion-item>
+
+    <div class="emergency-delete">
+      <button ion-button outline round (click)="linkDataDelete();">Delete</button>
+    </div>
+
+  </ion-list>
+</ion-content>

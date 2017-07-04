@@ -1,0 +1,56 @@
+page-edit-medications-add {
+
+  .edit-pro-border
+    {
+      border: none !important;
+      box-shadow: none !important;
+      background-color: transparent;
+      .item-inner
+      {
+        border: none !important;
+        box-shadow: none !important;
+        .edit_label
+        {
+          font-size: 15px;
+          padding: 5px;
+        }
+        .edit_input{
+            border: 1px solid #008ecf;
+            border-radius: 10px;
+            padding: 0 10px;
+            background-color: #f3f0f0;
+            color: #008ecf;
+         }
+      }
+    }
+    .toggle-part
+    {
+      width: 100%;
+      margin-top: 30px;
+      .toggle-name
+      {
+        width: calc( 50% + 80px);
+        min-width: 180px;
+        text-align: right;
+        float: left;
+        font-size: 20px;
+
+      }
+      .toggle-btn
+      {
+        float: left;
+        margin-top: 9px;
+      }
+    }
+  .emergency-delete
+      button{
+        width: 80%;
+        left: 10%;
+        color: #008ecf;
+        border-color: #008ecf;
+        font-size: 22px;
+        height: 60px;
+        top: 30px;
+        margin-bottom: 30px;
+    }
+}
