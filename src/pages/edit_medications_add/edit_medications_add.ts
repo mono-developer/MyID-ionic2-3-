@@ -191,6 +191,7 @@ export class EditMedicationsAddPage {
           handler: () => {
             console.log('Cancel clicked');
             this.medicationData.is_private = false;
+            this.toggleFlag.toggleFlag = !this.medicationData.is_private;
           }
         },
         {

@@ -100,8 +100,8 @@ export class UserService {
         country:country
       }
     }
-
-    let headers = new Headers({'auth_token': auth_token, 'email': email});
+    console.log("body:" + JSON.stringify(body));
+    let headers = new Headers({'Content-Type': 'application/json','auth_token': auth_token, 'email': email});
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseService.createProfileUrl, JSON.stringify(body), options)
             .map((res:Response) => res.json())
@@ -283,6 +283,60 @@ export class UserService {
       let headers = new Headers({'auth_token': auth_token, 'email': email, 'Content-Type': 'application/json'});
       let options = new RequestOptions({ headers: headers });
       return this.http.post(this.baseService.createProfileUrl + '/' + profile_id + '/folders', JSON.stringify(body), options)
+              .map((res:Response) => res.json())
+              .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    uploadFile(email, auth_token, profile_id, filename, url, folder_id){
+      let body;
+      if (folder_id == undefined || folder_id == ""){
+        body = {
+          'profile_id': profile_id.toString(),
+          'file_name': filename,
+          'file_url': url
+        }
+      }
+      else{
+        body = {
+          'profile_id': profile_id.toString(),
+          'folder_id': folder_id.toString(),
+          'file_name': filename,
+          'file_url': url
+        }
+      }
+
+      console.log(JSON.stringify(body) + "   " + this.baseService.createProfileUrl + '/' + profile_id + '/documents');
+      let headers = new Headers({'auth_token': auth_token, 'email': email, 'Content-Type': 'application/json'});
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post(this.baseService.createProfileUrl + '/' + profile_id + '/documents', JSON.stringify(body), options)
+              .map((res:Response) => res.json())
+              .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteDocuments(email, auth_token, profile_id, selected_ids){
+      let body = {
+        profile_id: profile_id.toString(),
+        document_ids : selected_ids
+      }
+
+      let headers = new Headers({'auth_token': auth_token, 'email': email, 'Content-Type': 'application/json'});
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.post(this.baseService.createProfileUrl + '/' + profile_id + '/documents/delete_documents', JSON.stringify(body), options)
+              .map((res:Response) => res.json())
+              .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteFolders(email, auth_token, profile_id, selected_ids){
+      let body = {
+        profile_id: profile_id.toString(),
+        folder_ids : selected_ids
+      }
+
+      let headers = new Headers({'auth_token': auth_token, 'email': email, 'Content-Type': 'application/json'});
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.post(this.baseService.createProfileUrl + '/' + profile_id + '/folders/delete_folders', JSON.stringify(body), options)
               .map((res:Response) => res.json())
               .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }

@@ -1165,7 +1165,7 @@ export class NewProfilePage {
           (data) => {
             loading.dismiss();
             if(data.success == false){
-              console.log("create Profiles:" + this.base64Image);
+              console.log("create Profiles:" + JSON.stringify(data));
            }else{
              console.log("create Profiles:" + JSON.stringify(data));
              this.flagService.setChangedFlag(true);

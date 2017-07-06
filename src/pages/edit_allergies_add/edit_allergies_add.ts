@@ -84,6 +84,7 @@ export class EditAllergiesAddPage {
                 alert.present();
                 this.navCtrl.pop();
               } else{
+                this.flagService.setChangedFlag(true);
                 let alert = this.alertCtrl.create({
                   title: "Deleted", subTitle: "Delete Success", buttons: ['OK']
                 });
@@ -183,6 +184,7 @@ export class EditAllergiesAddPage {
           handler: () => {
             console.log('Cancel clicked');
             this.allergiesData.is_private = false;
+            this.toggleFlag.toggleFlag = !this.allergiesData.is_private;
           }
         },
         {

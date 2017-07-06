@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content class="bg2">
-  <ion-card class="data-font" *ngFor="let vitalData of vitalDatas" (click)="gotoEditVitalConditionsAdd($event, vitalData);">
-    <ion-item>
+  <ion-card class="data-font" *ngFor="let vitalData of vitalDatas">
+    <ion-item (click)="gotoEditVitalConditionsAdd($event, vitalData);">
         <ion-row class="vital-content">
             <ion-col col-4><div class="condition-div">Condition:</div></ion-col>
             <ion-col><div class="condition-div">Note:</div></ion-col>
@@ -24,7 +24,7 @@
             <ion-col><div class="condition-div">{{vitalData.notes}}</div></ion-col>
         </ion-row>
     </ion-item>
-
+    <button ion-button clear item-end class="sheet-btn" (click)="presentActionSheet($event, vitalData)"><ion-icon ios="md-more" md="md-more"></ion-icon></button>
   </ion-card>
 
   <p  *ngIf="updated" class="update-txt">Last updated {{updated | date: 'MM/dd/yyyy'}}</p>

@@ -28,5 +28,10 @@
       <button ion-button clear item-end class="sheet-btn" (click)="presentActionSheet($event, profile)"><ion-icon ios="md-more" md="md-more"></ion-icon></button>
     </ion-card>
 
-    <button ion-button class="add-profile-btn" (click)="addProfile();"><img src="assets/image/add_profile_blue_icon.png" style="height:30px;"/>&nbsp;Add Profile</button>
+    <button *ngIf="update == 'bbb'" ion-button class="add-profile-btn" (click)="addProfile();"><img src="assets/image/add_profile_blue_icon.png" style="height:30px;"/>&nbsp;Add Profile</button>
+
+    <div *ngIf="update == 'aaa'">
+      <p class="update-txt" style="font-size: 20px;">Add Profile</p>
+      <img src="assets/image/arrow.png" class="arrow"/>
+    </div>
 </ion-content>

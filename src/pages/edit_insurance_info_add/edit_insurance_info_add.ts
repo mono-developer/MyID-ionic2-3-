@@ -193,6 +193,7 @@ export class EditInsuranceInfoAddPage {
           handler: () => {
             console.log('Cancel clicked');
             this.insuranceinfoData.is_private = false;
+            this.toggleFlag.toggleFlag = !this.insuranceinfoData.is_private;
           }
         },
         {

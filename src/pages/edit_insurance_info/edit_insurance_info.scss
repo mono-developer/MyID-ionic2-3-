@@ -12,6 +12,13 @@ page-edit-insurance-info {
     border-radius:8px;
     font-weight:bold;
     font-size:20px;
+    position:relative;
   }
 
+  .sheet-btn{
+    font-size: 20px !important;
+    position: absolute;
+    right: 0;
+    top: 8px;
+  }
 }

@@ -1160,6 +1160,7 @@ export class EditPhysiciansAddPage {
           handler: () => {
             console.log('Cancel clicked');
             this.physicianData.is_private = false;
+            this.toggleFlag.toggleFlag = !this.physicianData.is_private;
           }
         },
         {

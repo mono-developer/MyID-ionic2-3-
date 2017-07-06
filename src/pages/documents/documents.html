@@ -8,19 +8,73 @@
     <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
 
     <ion-buttons end>
-      <button ion-button style="color:white; background-color:inherit;" (click)="selectOptions();">
+      <button ion-button style="color:white; background-color:inherit;" (click)="selectOptions();" *ngIf="checkbox_flag!=1">
         <ion-icon name="more" style="font-size:30px;"></ion-icon>
+      </button>
+      <button ion-button style="color:white; background-color:inherit;" (click)="cancelSelect();" *ngIf="checkbox_flag==1">
+        Cancel
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-alpha-scroll *ngIf="documents"
-      [listData]="documents"
-      key="name"
-      [itemTemplate]="alphaScrollItemTemplate"
-      [currentPageClass]="currentPageClass"
-      [triggerChange]="triggerAlphaScrollChange">
-    </ion-alpha-scroll>
+  <div *ngIf="sort_flag == 'name'">
+    <div *ngIf="checkbox_flag==1">
+      <ion-alpha-scroll *ngIf="documents"
+        [listData]="documents"
+        key="name"
+        [itemTemplate]="alphaScrollItemTemplate1"
+        [currentPageClass]="currentPageClass"
+        [triggerChange]="triggerAlphaScrollChange">
+      </ion-alpha-scroll>
+    </div>
+    <div *ngIf="checkbox_flag!=1">
+      <ion-alpha-scroll *ngIf="documents"
+        [listData]="documents"
+        key="name"
+        [itemTemplate]="alphaScrollItemTemplate"
+        [currentPageClass]="currentPageClass"
+        [triggerChange]="triggerAlphaScrollChange">
+      </ion-alpha-scroll>
+    </div>
+  </div>
+
+  <div *ngIf="sort_flag == 'date'">
+    <div *ngIf="checkbox_flag!=1">
+      <div *ngFor="let header of date_month">
+        <div class="item-header">{{header}}</div>
+        <div class="item-div" *ngFor="let item of date_documents_array[header]">
+          <ion-item (click)="currentPageClass.onItemClick(item)">
+            <ion-icon item-left *ngIf="item.item_type=='folder'" name="ios-folder-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='image'" name="ios-image-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='video'" name="ios-videocam-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='document'" name="ios-document-outline" class="icon-style"></ion-icon>
+            <h2 style="font-size:5vw;">{{item.name}}</h2><p>{{item.file_size}}</p>
+            <ion-icon name="ios-arrow-dropdown-outline" item-right (click)="currentPageClass.moreOptions(item);"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="checkbox_flag==1">
+      <div *ngFor="let header of date_month">
+        <div class="item-header">{{header}}</div>
+        <div class="item-div" *ngFor="let item of date_documents_array[header]">
+          <ion-checkbox item-left (ionChange)="currentPageClass.check1(item.id);"></ion-checkbox>
+          <ion-item (click)="currentPageClass.onItemClick(item)">
+            <ion-icon item-left *ngIf="item.item_type=='folder'" name="ios-folder-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='image'" name="ios-image-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='video'" name="ios-videocam-outline" class="icon-style"></ion-icon>
+            <ion-icon item-left *ngIf="item.media_type=='document'" name="ios-document-outline" class="icon-style"></ion-icon>
+            <h2 style="font-size:5vw;">{{item.name}}</h2><p>{{item.file_size}}</p>
+            <ion-icon name="ios-arrow-dropdown-outline" item-right (click)="currentPageClass.moreOptions(item);"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+<button color="danger" ion-button icon-only class="delete-btn" *ngIf="checkbox_flag==1" (click)="deleteItems();">
+  <ion-icon name="ios-trash"></ion-icon>
+</button>

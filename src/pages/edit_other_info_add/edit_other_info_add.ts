@@ -185,6 +185,7 @@ export class EditOtherInfoAddPage {
           handler: () => {
             console.log('Cancel clicked');
             this.otherInfoData.is_private = false;
+            this.toggleFlag.toggleFlag = !this.otherInfoData.is_private;
           }
         },
         {

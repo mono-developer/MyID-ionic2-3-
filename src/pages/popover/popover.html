@@ -1,11 +1,12 @@
 
 
-<input type="file" name="file" id="file" class="inputfile" />
+<input type="file" name="file" id="file" class="inputfile" (change)="fileEvent($event)"/>
 <ion-list>
       <ion-list-header class="header">Options</ion-list-header>
       <label for="file" ion-item>Upload File...</label>
       <!-- <button for="file" ion-item (click)="uploadFile()">Upload File...</button> -->
       <button ion-item (click)="createFolderName()">Create Folder</button>
-      <button ion-item (click)="close()">Select</button>
-      <button ion-item (click)="close()">Sort by Date</button>
+      <button ion-item (click)="select()">Select</button>
+      <button ion-item (click)="sort('date')" *ngIf="sort_flag == 'name'">Sort by Date</button>
+      <button ion-item (click)="sort('name')" *ngIf="sort_flag == 'date'">Sort by Name</button>
 </ion-list>

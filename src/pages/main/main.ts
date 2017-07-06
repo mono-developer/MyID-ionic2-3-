@@ -18,7 +18,7 @@ export class MainPage {
   id:number;
   email: string;
   auth_token: string;
-
+  update:string;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -58,6 +58,12 @@ export class MainPage {
               if(data.success == false){
              }else{
                this.profiles = data.profiles;
+               if (data.profiles.length == 0){
+                 this.update = "aaa";
+               }
+               else{
+                 this.update = "bbb";
+               }
              }
             },
             (data) => {

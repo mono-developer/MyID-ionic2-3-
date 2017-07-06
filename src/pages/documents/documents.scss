@@ -49,4 +49,35 @@ page-documents {
   .icon-style{
     color: rgb(0, 142, 207);
   }
+
+  .item-div{
+    margin-left:5px;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    ion-item .item-inner{
+      border:none !important;
+    }
+  }
+
+  .delete-btn{
+    width: 60px;
+    height: 60px;
+    font-size: 5vw;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+    top: calc(100vh - 127px);
+    right: 10px;
+  }
+
+  .item-header{
+    width: 100%;
+    background-color: lightgray;
+    height: 30px;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-top: 4px;
+  }
 }

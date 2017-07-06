@@ -40,6 +40,7 @@ export class EditVitalConditionsAddPage {
       this.email = "";
       this.auth_token = "";
   }
+
   vitalDataDelete(){
 
     let alert = this.alertCtrl.create({
@@ -190,6 +191,7 @@ confirmAlert(){
         handler: () => {
           console.log('Cancel clicked');
           this.vitalData.is_private = false;
+          this.toggleFlag.toggleFlag = !this.vitalData.is_private;
         }
       },
       {

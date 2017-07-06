@@ -1,5 +1,14 @@
 page-preview-profile {
 
+  .no-padding{
+    .item-divider{
+      padding-left: 0px !important;
+      ion-label{
+        margin: 0px !important;
+      }
+    }
+  }
+
   .button-ios{
     top: 20px;
   }
@@ -37,7 +46,7 @@ page-preview-profile {
     }
 
   }
-  
+
     .user-info-div{
         background-color: lightgray;
         height: 36vw;
@@ -121,9 +130,8 @@ page-preview-profile {
     }
     .border{
       position: relative;
-      width: 90%;
-      left: 5%;
-      border: 1px solid gray;
+      width: 100%;
+      border: 1px solid rgba(153, 153, 153, 0.1);
     }
     .back_btn{
       position: absolute;
