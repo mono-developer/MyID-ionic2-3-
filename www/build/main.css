@@ -27629,6 +27629,32 @@ ion-content.statusbar-padding:first-child .scroll-content {
   padding-top: 35vh !important;
 }
 
+ion-passcode.blue .ion-passcode-container {
+  background: linear-gradient(to bottom right, #347eff 0%, #1ea3ff 85%) !important;
+}
+
+ion-passcode.passcode-example img.logo {
+  width: 100px;
+}
+
+ion-passcode.passcode-example .passcode-indicator {
+  margin-top: 1.5rem !important;
+}
+
+.transparent-header .toolbar .toolbar-background {
+  background: transparent;
+}
+
+.no-margin-top .scroll-content {
+  margin-top: 0 !important;
+}
+
+ion-item-divider p {
+  overflow: initial !important;
+  text-overflow: initial !important;
+  white-space: initial !important;
+}
+
 page-add-medicine .edit-pro-border {
   border: none !important;
   box-shadow: none !important;
@@ -27788,6 +27814,44 @@ page-documents .icon-style {
   color: #008ecf;
 }
 
+page-documents .item-div {
+  margin-left: 5px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-documents .item-div ion-item .item-inner {
+  border: none !important;
+}
+
+page-documents .delete-btn {
+  width: 60px;
+  height: 60px;
+  font-size: 5vw;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 100;
+  top: calc(100vh - 127px);
+  right: 10px;
+}
+
+page-documents .item-header {
+  width: 100%;
+  background-color: lightgray;
+  height: 30px;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 4px;
+}
+
 page-edit-address .title-btn {
   color: white;
   text-align: center;
@@ -27843,11 +27907,19 @@ page-edit-allergies .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
 }
 
 page-edit-allergies .update-txt {
   text-align: center;
   color: grey;
+}
+
+page-edit-allergies .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-allergies-add .vital_con_input {
@@ -27907,6 +27979,14 @@ page-edit-emergency .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
+}
+
+page-edit-emergency .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-emergency-add .edit-pro-border {
@@ -27956,6 +28036,14 @@ page-edit-insurance-info .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
+}
+
+page-edit-insurance-info .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-insurance-info-add .edit-pro-border {
@@ -28089,11 +28177,19 @@ page-edit-medications .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
 }
 
 page-edit-medications .update-txt {
   text-align: center;
   color: grey;
+}
+
+page-edit-medications .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-medications-add .edit-pro-border {
@@ -28163,11 +28259,19 @@ page-edit-other-info .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
 }
 
 page-edit-other-info .update-txt {
   text-align: center;
   color: grey;
+}
+
+page-edit-other-info .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-other-info-add .vital_con_input {
@@ -28282,11 +28386,19 @@ page-edit-physicians .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
 }
 
 page-edit-physicians .update-txt {
   text-align: center;
   color: grey;
+}
+
+page-edit-physicians .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-physicians-add .edit-pro-border {
@@ -28477,11 +28589,19 @@ page-edit-vital-conditions .data-font {
   border-radius: 8px;
   font-weight: bold;
   font-size: 20px;
+  position: relative;
 }
 
 page-edit-vital-conditions .update-txt {
   text-align: center;
   color: grey;
+}
+
+page-edit-vital-conditions .sheet-btn {
+  font-size: 20px !important;
+  position: absolute;
+  right: 0;
+  top: 8px;
 }
 
 page-edit-vital-conditions-add .title-btn {
@@ -29033,6 +29153,23 @@ page-popover .header {
   font-size: 16px;
 }
 
+page-popover .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+page-preview-profile .no-padding .item-divider {
+  padding-left: 0px !important;
+}
+
+page-preview-profile .no-padding .item-divider ion-label {
+  margin: 0px !important;
+}
+
 page-preview-profile .button-ios {
   top: 20px;
 }
@@ -29165,9 +29302,8 @@ page-preview-profile .data-font {
 
 page-preview-profile .border {
   position: relative;
-  width: 90%;
-  left: 5%;
-  border: 1px solid gray;
+  width: 100%;
+  border: 1px solid rgba(153, 153, 153, 0.1);
 }
 
 page-preview-profile .back_btn {

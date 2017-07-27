@@ -24,6 +24,8 @@ import { QRWallpaperPage } from '../pages/qr_wallpaper/qr_wallpaper';
 import { ReviewPage } from '../pages/review/review';
 import { SettingsPage } from '../pages/settings/settings';
 import { PasscodePage } from '../pages/passcode/passcode'
+import { PasscodeSettingPage } from '../pages/passcode-setting/passcode-setting';
+import { IonPasscode } from '../components/ion-passcode';
 import { UpgradeAccountPage } from '../pages/upgrade_account/upgrade_account'
 import { BillingPage } from '../pages/billing/billing'
 import { EditVitalConditionsPage } from '../pages/edit_vital_conditions/edit_vital_conditions';
@@ -72,6 +74,19 @@ import { AddMedicinePage } from '../pages/add_medicine/add_medicine';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { RefillReminderPage } from '../pages/refill_reminder/refill_reminder';
 import { ViewReminderPage } from '../pages/view_reminder/view_reminder';
+// import { TranslateModule } from 'ng2-translate/ng2-translate';
+import { TranslateModule } from '@ngx-translate/core';
+// import { TranslateLoader, TranslateStaticLoader } from 'ng2-translate/src/translate.service';
+// import { Http } from '@angular/http';
+import { Globalization } from '@ionic-native/globalization';
+import { Http } from '@angular/http';
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Network } from '@ionic-native/network';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -95,6 +110,8 @@ import { ViewReminderPage } from '../pages/view_reminder/view_reminder';
     ReviewPage,
     SettingsPage,
     PasscodePage,
+    PasscodeSettingPage,
+    IonPasscode,
     UpgradeAccountPage,
     BillingPage,
     SharingPage,
@@ -131,6 +148,13 @@ import { ViewReminderPage } from '../pages/view_reminder/view_reminder';
     HttpModule,
     IonicModule.forRoot(MyApp),
     IonAlphaScrollModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -155,11 +179,14 @@ import { ViewReminderPage } from '../pages/view_reminder/view_reminder';
     ReviewPage,
     SettingsPage,
     PasscodePage,
+    PasscodeSettingPage,
+    IonPasscode,
     UpgradeAccountPage,
     BillingPage,
     SharingPage,
     SuccessLinkPage,
     EditLinkedMyIDAddPage,
+
 
     EditVitalConditionsPage,
     EditVitalConditionsAddPage,
@@ -202,6 +229,8 @@ import { ViewReminderPage } from '../pages/view_reminder/view_reminder';
     File,
     BarcodeScanner,
     InAppBrowser,
+    Globalization,
+    Network,
     // MultipartItem,
     // MultipartUploader,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

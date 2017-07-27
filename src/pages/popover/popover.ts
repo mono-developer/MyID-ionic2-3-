@@ -5,6 +5,8 @@ import { UserService } from "../../providers/user-service";
 import * as AWS from "aws-sdk/global";
 import S3 from "aws-sdk/clients/s3";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-popover',
    templateUrl: 'popover.html'
@@ -21,14 +23,15 @@ export class PopoverContentPage {
   file:any;
   public sort_flag:string;
   static get parameters() {
-    return [[ViewController],[AlertController],[LoadingController],[Storage], [UserService], [NavParams]];
+    return [[ViewController],[AlertController],[LoadingController],[Storage], [UserService], [NavParams], [TranslateService]];
   }
 
   constructor(public viewCtrl: ViewController, public alertCtrl:AlertController, public loadingCtrl:LoadingController, public storage:Storage,
-    public userService:UserService, public params:NavParams){
+    public userService:UserService, public params:NavParams, public translate: TranslateService){
       this.profile_id = this.params.get('profile_id');
       this.parent_id = this.params.get('parent_id');
       this.sort_flag = this.params.get('sort_flag');
+      this.translate.use(sysOptions.systemLanguage);
   }
 
   sort(sort_by){
@@ -44,17 +47,17 @@ export class PopoverContentPage {
   }
   createFolderName(){
     let prompt = this.alertCtrl.create({
-      title: 'Create Folder',
+      title: this.translate.get('Create Folder')['value'],
       message: "",
       inputs: [
         {
           name: 'folder_name',
-          placeholder: 'Enter the new folder name.'
+          placeholder: this.translate.get('Enter the new folder name')['value']
         },
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translate.get('Cancel')['value'],
           handler: data => {
             console.log('Cancel clicked');
           }

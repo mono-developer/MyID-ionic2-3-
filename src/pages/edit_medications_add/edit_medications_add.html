@@ -3,13 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">Medications</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Medications' | translate}}</div></ion-title>
     <ion-buttons end>
       <button *ngIf="!medicationData.id" ion-button style="color:white; background-color:inherit;" (click)="medicationDataCreate();">
-        Save
+        {{'Save' | translate}}
       </button>
       <button *ngIf="medicationData.id" ion-button style="color:white; background-color:inherit;" (click)="medicationDataUpdate();">
-        Update
+        {{'Update' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -19,32 +19,32 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Name</ion-label>
-      <ion-input [(ngModel)]="medicationData.name" type="text" class="edit_input" placeholder="Enter Name"></ion-input>
+      <ion-label stacked class="edit_label">{{'Name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="medicationData.name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Dosage</ion-label>
-      <ion-input [(ngModel)]="medicationData.dosage" type="text" class="edit_input" placeholder="Enter Dosage"></ion-input>
+      <ion-label stacked class="edit_label">{{'Dosage' | translate}}</ion-label>
+      <ion-input [(ngModel)]="medicationData.dosage" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Frequency</ion-label>
-      <ion-input [(ngModel)]="medicationData.frequency" type="text" class="edit_input" placeholder="Enter Frequency"></ion-input>
+      <ion-label stacked class="edit_label">{{'Frequency' | translate}}</ion-label>
+      <ion-input [(ngModel)]="medicationData.frequency" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Notes</ion-label>
-      <ion-input [(ngModel)]="medicationData.notes" type="text" class="edit_input" placeholder="Enter Notes"></ion-input>
+      <ion-label stacked class="edit_label">{{'Notes' | translate}}</ion-label>
+      <ion-input [(ngModel)]="medicationData.notes" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <div class="toggle-part">
-      <ion-label class="toggle-name">Visible on public profile? </ion-label>
+      <ion-label class="toggle-name">{{'Visible on public profile' | translate}}</ion-label>
       <ion-toggle [(ngModel)]="toggleFlag.toggleFlag" class="toggle-btn" (ionChange)="notify()" checked="false"></ion-toggle>
     </div>
 
     <div class="emergency-delete">
-      <button *ngIf="medicationData.id" ion-button outline round (click)="medicationDataDelete();">Delete</button>
+      <button *ngIf="medicationData.id" ion-button outline round (click)="medicationDataDelete();">{{'Delete' | translate}}</button>
     </div>
 
   </ion-list>

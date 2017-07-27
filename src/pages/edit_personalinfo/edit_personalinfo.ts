@@ -4,6 +4,8 @@ import { Storage } from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 
 @Component({
   selector: 'page-edit-personalinfo',
@@ -29,7 +31,9 @@ export class EditPersonalInformationPage {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public userService: UserService,
-    public storage: Storage) {
+    public storage: Storage,
+    public translate: TranslateService) {
+      this.translate.use(sysOptions.systemLanguage);
     this.person = navParams.get("person");
     this.profile_id = navParams.get("profile_id")
     this.email = "";

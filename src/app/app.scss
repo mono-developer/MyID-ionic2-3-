@@ -161,3 +161,35 @@ ion-content.statusbar-padding:first-child .scroll-content{
  .alert-position{
   padding-top: 35vh !important;
 }
+ion-passcode.blue .ion-passcode-container {
+  background: linear-gradient(to bottom right, #347eff 0%, #1ea3ff 85%) !important;
+}
+
+
+ion-passcode.passcode-example {
+  img.logo {
+    width: 100px;
+  }
+  .passcode-indicator {
+    margin-top: 1.5rem !important;
+  }
+}
+
+.transparent-header {
+  .toolbar {
+    .toolbar-background {
+      background: transparent;
+    }
+  }
+}
+
+.no-margin-top .scroll-content {
+  margin-top: 0 !important;
+}
+
+
+ion-item-divider p {
+  overflow: initial !important;
+  text-overflow: initial !important;
+  white-space: initial !important;
+}

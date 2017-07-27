@@ -6,6 +6,8 @@ import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { ShareProfilePage } from '../share_profile/share_profile';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-preview-profile',
   templateUrl: 'preview_profile.html'
@@ -47,8 +49,9 @@ export class PreviewProfilePage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
+    public translate: TranslateService
   ) {
-
+    this.translate.use(sysOptions.systemLanguage);
     this.profile = this.navParams;
     this.profileItems = [
         { title: 'Vital Medical Conditions', component: MainPage, icon: 'ios-warning-outline' },
@@ -65,7 +68,16 @@ export class PreviewProfilePage {
   }
 
   ngOnInit(){
-    this.gettingdata();
+    this.storage.get('wifi').then(val=>{
+      if(val == true){
+        this.gettingdata();
+      }else{
+        this.storage.get('previewData').then(val=>{
+          this.listInformation(val);
+        });
+      }
+    });
+
   }
 
   gettingdata(){
@@ -81,7 +93,7 @@ export class PreviewProfilePage {
            .subscribe(
              (data) => {
               //  loading.dismiss();
-               console.log("Vital Data: ", data);
+               console.log("Data: ", data);
                if(data.success == false){
                  let alert = this.alertCtrl.create({
                    title: "Error", subTitle: "Get Data Error", buttons: ['OK']
@@ -89,39 +101,46 @@ export class PreviewProfilePage {
                  alert.present();
                  this.navCtrl.pop();
                } else{
-                 var myDate = new Date().toISOString().substring(0,4);
+
                  console.log(data);
-                 this.profileData = data.profile;
-                 this.personalData = data.profile.person;
-                 this.vitalData = data.profile.vital_medical_conditions.items;
-                 this.emergencyData = data.profile.emergency_contacts.items;
-                 this.allergyData = data.profile.allergies.items;
-                 this.medicationData =  data.profile.medications.items;
-                 this.physicianData = data.profile.physicians.items;
-                 this.insuranceData = data.profile.insurance_informations.items;
-                 this.otherinfoData =  data.profile.other_informations.items;
-
-                 this.vitalUpdated =  data.profile.vital_medical_conditions.last_updated_at;
-                 this.personalUpdated = data.profile.person.last_updated_at;
-                 this.emergencyUpdated = data.profile.emergency_contacts.last_updated_at;
-                 this.allergyUpdated = data.profile.allergies.last_updated_at;
-                 this.medicationUpdated =  data.profile.medications.last_updated_at;
-                 this.physicianUpdated =  data.profile.physicians.last_updated_at;
-                 this.insuranceUpdated =  data.profile.insurance_informations.last_updated_at;
-                 this.otherinforUpdated = data.profile.other_informations.last_updated_at;
-
-                 if(this.personalData.donor == true){
-                    this.donor = "Yes";
-                 }else {
-                   this.donor = "No";
-                 }
-                 this.age = (parseInt(myDate) -  parseInt(data.profile.birth_date)).toString();
+                 this.storage.set('previewData', data);
+                 this.listInformation(data);
 
              }
            });
        });
      });
 
+  }
+
+  listInformation(data){
+
+    var myDate = new Date().toISOString().substring(0,4);
+    this.profileData = data.profile;
+    this.personalData = data.profile.person;
+    this.vitalData = data.profile.vital_medical_conditions.items;
+    this.emergencyData = data.profile.emergency_contacts.items;
+    this.allergyData = data.profile.allergies.items;
+    this.medicationData =  data.profile.medications.items;
+    this.physicianData = data.profile.physicians.items;
+    this.insuranceData = data.profile.insurance_informations.items;
+    this.otherinfoData =  data.profile.other_informations.items;
+
+    this.vitalUpdated =  data.profile.vital_medical_conditions.last_updated_at;
+    this.personalUpdated = data.profile.person.last_updated_at;
+    this.emergencyUpdated = data.profile.emergency_contacts.last_updated_at;
+    this.allergyUpdated = data.profile.allergies.last_updated_at;
+    this.medicationUpdated =  data.profile.medications.last_updated_at;
+    this.physicianUpdated =  data.profile.physicians.last_updated_at;
+    this.insuranceUpdated =  data.profile.insurance_informations.last_updated_at;
+    this.otherinforUpdated = data.profile.other_informations.last_updated_at;
+
+    if(this.personalData.donor == true){
+       this.donor = "Yes";
+    }else {
+      this.donor = "No";
+    }
+    this.age = (parseInt(myDate) -  parseInt(data.profile.birth_date)).toString();
   }
 
   goBack(){

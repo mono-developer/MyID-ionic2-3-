@@ -6,6 +6,8 @@ import { BaseService } from "../../providers/base-service";
 import * as moment from 'moment';
 import * as momentTz from 'moment-timezone';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-share-profile',
   templateUrl: 'share_profile.html'
@@ -17,8 +19,9 @@ export class ShareProfilePage {
   public auth_token: any;
   public profile_id: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public storage: Storage,
-      public userService: UserService, public alertCtrl:AlertController) {
+      public userService: UserService, public alertCtrl:AlertController, public translate: TranslateService) {
       this.profile_id = navParams.get('profile_id');
+      this.translate.use(sysOptions.systemLanguage);
   }
 
   ngOnInit(){

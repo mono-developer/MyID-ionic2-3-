@@ -3,6 +3,8 @@ import { NavController, NavParams, Nav } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { EditQRWallpaperPage } from '../edit_qr_wallpaper/edit_qr_wallpaper';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-qr-wallpaper',
   templateUrl: 'qr_wallpaper.html'
@@ -10,8 +12,8 @@ import { EditQRWallpaperPage } from '../edit_qr_wallpaper/edit_qr_wallpaper';
 export class QRWallpaperPage {
 
   public base64Image:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public nav: Nav, public camera: Camera) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public nav: Nav, public camera: Camera, public translate: TranslateService) {
+    this.translate.use(sysOptions.systemLanguage);
   }
 
   goBack(){

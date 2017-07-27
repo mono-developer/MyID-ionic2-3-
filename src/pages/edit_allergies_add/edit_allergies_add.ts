@@ -5,6 +5,8 @@ import {IonicStorageModule} from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-allergies-add',
   templateUrl: 'edit_allergies_add.html'
@@ -24,8 +26,10 @@ export class EditAllergiesAddPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
+    this.translate.use(sysOptions.systemLanguage);
     if (navParams.get("allergiesData") != null){
       this.allergiesData = navParams.get("allergiesData");
       this.toggleFlag.toggleFlag = !this.allergiesData.is_private;

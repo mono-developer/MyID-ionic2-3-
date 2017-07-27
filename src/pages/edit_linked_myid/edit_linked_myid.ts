@@ -5,6 +5,8 @@ import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 import { EditLinkedMyIDAddPage } from "../edit_linked_myid_add/edit_linked_myid_add";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-linked-myid',
   templateUrl: 'edit_linked_myid.html'
@@ -25,8 +27,10 @@ export class EditLinkedMyIDPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
+    this.translate.use(sysOptions.systemLanguage);
     this.tab = this.navCtrl.parent;
 
     this.profile_id = navParams.get("profile_id");
@@ -67,7 +71,7 @@ export class EditLinkedMyIDPage {
               } else{
                 this.linkData = data.id_bands;
                 this.updated = data.last_updated_at;
-                
+
                 console.log(data);
               }
           });

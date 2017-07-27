@@ -3,10 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">LINKED MYID PRODUCTS</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Linked MyID Products' | translate}}</div></ion-title>
     <ion-buttons end>
       <button ion-button style="color:white; background-color:inherit;" (click)="save();">
-        Save
+        {{'Save' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -16,22 +16,22 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">LABEL</ion-label>
-      <ion-input [(ngModel)] ="link.name" type="text" class="edit_input" placeholder="Enter label"></ion-input>
+      <ion-label stacked class="edit_label">{{'Label' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="link.name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">PIN #</ion-label>
+      <ion-label stacked class="edit_label">{{'PIN #' | translate}}</ion-label>
       <ion-input [(ngModel)] ="link.pin" type="text" class="edit_input" disabled></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">ID #</ion-label>
-      <ion-input [(ngModel)] ="link.serial" type="tel" class="edit_input" placeholder="Enter PhoneNumber" disabled></ion-input>
+      <ion-label stacked class="edit_label">{{'ID #' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="link.serial" type="tel" class="edit_input" placeholder="" disabled></ion-input>
     </ion-item>
 
     <div class="emergency-delete">
-      <button ion-button outline round (click)="linkDataDelete();">Delete</button>
+      <button ion-button outline round (click)="linkDataDelete();">{{'Delete' | translate}}</button>
     </div>
 
   </ion-list>

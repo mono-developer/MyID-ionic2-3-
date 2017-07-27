@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">Physicians</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Physicians' | translate}}</div></ion-title>
     <ion-buttons end>
       <button ion-button (click)="gotoEditPhysiciansAddPage($event, physicianData);" class="add_btn">
         <ion-icon name="ios-add-circle-outline"></ion-icon>
@@ -16,8 +16,8 @@
   <ion-card class="data-font" *ngFor="let physicianData of physicianDatas" >
     <ion-item (click)="gotoEditPhysiciansAddPage($event, physicianData);">
         <ion-row class="vital-content">
-            <ion-col col-4><div class="condition-div">Name:</div></ion-col>
-            <ion-col><div class="condition-div">Business:</div></ion-col>
+            <ion-col col-4><div class="condition-div">{{'Name' | translate}}:</div></ion-col>
+            <ion-col><div class="condition-div">{{'Business' | translate}}:</div></ion-col>
         </ion-row>
         <ion-row>
             <ion-col col-4><div class="condition-div">{{physicianData.name}}</div></ion-col>
@@ -27,9 +27,9 @@
       <button ion-button clear item-end class="sheet-btn" (click)="presentActionSheet($event, physicianData)"><ion-icon ios="md-more" md="md-more"></ion-icon></button>
   </ion-card>
 
-  <p  *ngIf="updated" class="update-txt">Last updated {{updated | date: 'MM/dd/yyyy'}}</p>
+  <p  *ngIf="updated" class="update-txt">{{'Last updated' | translate}} {{updated | date: 'MM/dd/yyyy'}}</p>
   <div *ngIf="!updated">
-    <p class="update-txt" style="font-size: 20px;">Add Physican</p>
+    <p class="update-txt" style="font-size: 20px;">{{'Add' | translate}} {{'Physician' | translate}}</p>
     <img src="assets/image/arrow.png" class="arrow"/>
   </div>
 </ion-content>

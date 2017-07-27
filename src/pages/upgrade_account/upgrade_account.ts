@@ -6,6 +6,8 @@ import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 import { HomePage } from '../home/home';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-upgrade-account',
   templateUrl: 'upgrade_account.html'
@@ -25,7 +27,8 @@ export class UpgradeAccountPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
 
     this.storage.get('email').then(val=>{

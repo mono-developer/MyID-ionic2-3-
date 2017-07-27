@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams, ModalController, LoadingController,  ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ModalController, LoadingController,  ActionSheetController, Config} from 'ionic-angular';
 import { NewProfilePage } from '../new_profile/new_profile';
 import { ProfilePage } from '../profile/profile';
 import { EditProfilePage } from '../edit_profile/edit_profile';
@@ -7,6 +7,9 @@ import { Storage } from '@ionic/storage';
 import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
+
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 
 @Component({
   selector: 'page-main',
@@ -19,6 +22,8 @@ export class MainPage {
   email: string;
   auth_token: string;
   update:string;
+  wifiValue:boolean;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,21 +34,25 @@ export class MainPage {
     public loadingCtrl: LoadingController,
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
+    public translate: TranslateService,
+    public config: Config
   ) {
     this.email = "";
     this.auth_token = "";
+    this.translate.use(sysOptions.systemLanguage);
+    this.config.set('ios', 'backButtonText', this.translate.get('ui.general.back')['value']);
   }
 
   ngOnInit(){
     this.flagService.setChangedFlag(false);
-    this.getDate();
-  }
+    this.getData();
+    }
   ionViewDidEnter(){
     if(this.flagService.getChangedFlag()){
-      this.getDate();
+      this.getData();
     }
   }
-  getDate(){
+  getData(){
     let loading = this.loadingCtrl.create();
     loading.present();
 
@@ -68,6 +77,7 @@ export class MainPage {
             },
             (data) => {
               loading.dismiss();
+              console.log('internet Fails');
             });
       });
     });
@@ -79,31 +89,32 @@ export class MainPage {
 
   gotoProfile(event, profile){
       console.log("Go ProfolePage");
+
       this.navCtrl.push(ProfilePage, {
         profile: profile
       });
   }
   presentActionSheet(event, profile) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Modify your options',
+      title: '',
       buttons: [
         {
-          text: 'Upgrade',
+          text: this.translate.get('Upgrade')['value'],
           handler: () => {
             console.log('Upgrade clicked');
           }
         },{
-          text: 'Link A MyID Product',
+          text: this.translate.get('Link A MyID Product')['value'],
           handler: () => {
             console.log('MyID Product clicked');
           }
         },{
-          text: 'Create QR Code Wallpaper',
+          text: this.translate.get('Create QR Code Wallpaper')['value'],
           handler: () => {
             console.log('QRCode clicked');
           }
         },{
-          text: 'Delete Profile',
+          text: this.translate.get('Delete Profile')['value'],
           role: 'destructive',
           handler: () => {
             console.log('Delete clicked');
@@ -111,7 +122,7 @@ export class MainPage {
             this.confirmAlert(profile);
           }
         },{
-          text: 'Cancel',
+          text: this.translate.get('Cancel')['value'],
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
@@ -156,7 +167,7 @@ export class MainPage {
             console.log(data);
          }else{
            console.log("login result", data);
-           this.getDate();
+           this.getData();
          }
         },
         (data) => {

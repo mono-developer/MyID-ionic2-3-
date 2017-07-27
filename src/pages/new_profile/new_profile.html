@@ -3,10 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><div style="color:white;">NEW PROFILE</div></ion-title>
+    <ion-title><div style="color:white;">{{'NEW PROFILE' | translate}}</div></ion-title>
 
     <ion-buttons end>
-      <button ion-button class="save-btn" (click)="createProfile();">Save
+      <button ion-button class="save-btn" (click)="createProfile();">{{'Save' | translate}}
       </button>
     </ion-buttons>
 
@@ -22,45 +22,45 @@
     <ion-list>
 
       <ion-item>
-        <ion-label color="primary" floating>First Name</ion-label>
+        <ion-label color="primary" floating>{{'First Name' | translate}}</ion-label>
         <ion-input type="text" value="" [(ngModel)]="profile_info.first_name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>Last Name</ion-label>
+        <ion-label color="primary" floating>{{'Last Name' | translate}}</ion-label>
         <ion-input type="text" value="" [(ngModel)]="profile_info.last_name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>Gender</ion-label>
+        <ion-label color="primary" floating>{{'Gender' | translate}}</ion-label>
         <ion-select [(ngModel)]="profile_info.gender">
-          <ion-option value="female">Female</ion-option>
-          <ion-option value="male">Male</ion-option>
+          <ion-option value="female">{{'Female' | translate}}</ion-option>
+          <ion-option value="male">{{'Male' | translate}}</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>Birthday</ion-label>
+        <ion-label color="primary" floating>{{'Birthday' | translate}}</ion-label>
         <ion-input type="date" value="" [(ngModel)]="profile_info.birth_date"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>City</ion-label>
+        <ion-label color="primary" floating>{{'City' | translate}}</ion-label>
         <ion-input type="text" value="" [(ngModel)]="profile_info.city"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>State</ion-label>
+        <ion-label color="primary" floating>{{'State' | translate}}</ion-label>
         <ion-input type="text" value="" [(ngModel)]="profile_info.state"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>Zip</ion-label>
+        <ion-label color="primary" floating>{{'Zip' | translate}}</ion-label>
         <ion-input type="text" value="" [(ngModel)]="profile_info.zip"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>Country</ion-label>
+        <ion-label color="primary" floating>{{'Country' | translate}}</ion-label>
         <ion-select [(ngModel)]="profile_info.country">
           <ion-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</ion-option>
         </ion-select>

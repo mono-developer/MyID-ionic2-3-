@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { UserService } from "../../providers/user-service";
 import { SuccessLinkPage } from "../success_link/success_link";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-link-product',
   templateUrl: 'link_product.html'
@@ -20,7 +22,8 @@ export class LinkProductPage {
 
   public id_band_data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public nav: Nav, public barcodeScanner: BarcodeScanner,
-      public storage: Storage, public loadingCtrl: LoadingController, public userService: UserService, public alertCtrl: AlertController) {
+      public storage: Storage, public loadingCtrl: LoadingController, public userService: UserService, public alertCtrl: AlertController, public translate: TranslateService) {
+        this.translate.use(sysOptions.systemLanguage);
       this.profile = this.navParams;
   }
 

@@ -5,6 +5,8 @@ import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-emergency-add',
   templateUrl: 'edit_emergency_add.html'
@@ -23,13 +25,15 @@ export class EditEmergencyAddPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
       this.emergencyData = navParams.get("emergencyData");
       console.log(this.emergencyData);
       this.profile_id = navParams.get("profile_id");
       this.email = "";
       this.auth_token = "";
+      this.translate.use(sysOptions.systemLanguage);
   }
 
   emergencyDataDelete(){

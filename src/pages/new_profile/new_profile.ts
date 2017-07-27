@@ -14,6 +14,8 @@ import { MainPage } from "../main/main";
 import {MultipartItem} from "../../providers/multipart-upload/multipart-item";
 import {MultipartUploader} from "../../providers/multipart-upload/multipart-uploader";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 declare var cordova: any;
 
 @Component({
@@ -50,9 +52,10 @@ export class NewProfilePage {
     public file:File,
     public baseService:BaseService,
     public fileTransfer: Transfer,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
-
+        this.translate.use(sysOptions.systemLanguage);
         this.countries = [ {
             name: "United States",
             dial_code: "+1",

@@ -6,7 +6,7 @@
     <ion-title class="response-android"><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
     <ion-buttons end>
       <button ion-button style="color:white; background-color:inherit;" (click)="updateAccount();">
-        Save
+        {{'Save' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -17,26 +17,26 @@
   <ion-list>
 
     <ion-item class="edit-pro-border">
-      <ion-label  stacked class="edit_label">Email</ion-label>
+      <ion-label  stacked class="edit_label">{{'Email' | translate}}</ion-label>
       <ion-input [(ngModel)]="new_email" type="email" class="edit_input" placeholder="Enter Email"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Current Password</ion-label>
+      <ion-label stacked class="edit_label">{{'Current Password' | translate}}</ion-label>
       <ion-input [(ngModel)]="current_pass" type="password" class="edit_input" placeholder="Current Password"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border new">
-      <ion-label stacked class="edit_label">New Password</ion-label>
-      <ion-input *ngIf="new_email != email" [(ngModel)]="new_pass" type="password" class="edit_input" placeholder="New Password" disabled="true"></ion-input>
-      <ion-input *ngIf="new_email == email" [(ngModel)]="new_pass" type="password" class="edit_input" placeholder="New Password" ></ion-input>
-      <ion-input *ngIf="new_email != email" [(ngModel)]="confirm_pass" type="password" class="edit_input" placeholder="Confirm Password" disabled="true"></ion-input>
-      <ion-input *ngIf="new_email == email" [(ngModel)]="confirm_pass" type="password" class="edit_input" placeholder="Confirm Password"></ion-input>
+      <ion-label stacked class="edit_label">{{'New Password' | translate}}</ion-label>
+      <ion-input *ngIf="new_email != email" [(ngModel)]="new_pass" type="password" class="edit_input" placeholder="{{'New Password' | translate}}" disabled="true"></ion-input>
+      <ion-input *ngIf="new_email == email" [(ngModel)]="new_pass" type="password" class="edit_input" placeholder="{{'New Password' | translate}}" ></ion-input>
+      <ion-input *ngIf="new_email != email" [(ngModel)]="confirm_pass" type="password" class="edit_input" placeholder="{{'Confirm Password' | translate}}" disabled="true"></ion-input>
+      <ion-input *ngIf="new_email == email" [(ngModel)]="confirm_pass" type="password" class="edit_input" placeholder="{{'Confirm Password' | translate}}"></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div class="setting-delete">
-    <button ion-button outline round color="danger" (click)="deleteAccount()">Delete My Account</button>
+    <button ion-button outline round color="danger" (click)="deleteAccount()">{{'Delete My Account' | translate}}</button>
   </div>
 </ion-content>

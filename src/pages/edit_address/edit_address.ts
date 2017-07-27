@@ -4,7 +4,8 @@ import { Storage } from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 
-
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-address',
   templateUrl: 'edit_address.html'
@@ -24,8 +25,10 @@ export class EditAddressPage {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public userService: UserService,
-    public storage: Storage) {
+    public storage: Storage,
+    public translate: TranslateService) {
 
+      this.translate.use(sysOptions.systemLanguage);
     this.profile_id = navParams.get("profile_id");
     this.email = "";
     this.auth_token = "";

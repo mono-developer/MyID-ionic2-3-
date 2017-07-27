@@ -3,15 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" style="color:white;"></ion-icon>
     </button>
-    <ion-title><div style="color:white;">Settings</div></ion-title>
+    <ion-title><div style="color:white;">{{'Settings' | translate}}</div></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
     <button ion-button full  color="light" class="setting_btn" (click)="goPasscodePage()">
-      <p class="title">Pascode Lock</p>
-      <p style="margin-right: 15px;">off</p>
+
+      <p class="title">{{'Passcode Lock' | translate}}</p>
+      <p *ngIf="!passValue" style="margin-right: 15px;">{{'Off' | translate}}</p>
+      <p *ngIf="passValue" style="margin-right: 15px;">{{'On' | translate}}</p>
+
       <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
     </button>
     <button ion-button full  color="light" class="setting_btn" (click)="goUpgradeAccountPage()">
@@ -19,8 +22,8 @@
       <ion-icon name="ios-arrow-forward-outline" class="icon"></ion-icon>
     </button>
     <button ion-button full  color="light" class="setting_btn" (click)="goBillingPage()">
-      <p class="title">Billing</p>
+      <p class="title">{{'Billing' | translate}}</p>
       <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
     </button>
-  <button class="logout-btn" ion-button outline round (click)="logOut();">Log Out</button>
+  <button class="logout-btn" ion-button outline round (click)="logOut();">{{'Log Out' | translate}}</button>
 </ion-content>

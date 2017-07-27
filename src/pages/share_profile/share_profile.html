@@ -10,27 +10,27 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Email</ion-label>
+      <ion-label stacked class="edit_label">{{'Email' | translate}}</ion-label>
       <ion-input [(ngModel)]="shareInfo.email" type="text" class="edit_input"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Message (Optional)</ion-label>
+      <ion-label stacked class="edit_label">{{'Message (Optional)' | translate}}'</ion-label>
       <ion-input [(ngModel)]="shareInfo.message" type="text" class="edit_input"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Set Password</ion-label>
+      <ion-label stacked class="edit_label">{{'Set Password' | translate}}</ion-label>
       <ion-input [(ngModel)]="shareInfo.password" type="password" class="edit_input"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Expiration Date</ion-label>
+      <ion-label stacked class="edit_label">{{'Expiration Date (Optional)' | translate}}</ion-label>
       <ion-input [(ngModel)]="shareInfo.expired_date" type="date" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <div class="emergency-delete">
-      <button ion-button outline round (click)="send();" [disabled]="shareInfo.email==''">Send</button>
+      <button ion-button outline round (click)="send();" [disabled]="shareInfo.email==''">{{'Send' | translate}}</button>
     </div>
 
   </ion-list>

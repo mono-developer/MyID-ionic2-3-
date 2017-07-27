@@ -5,6 +5,8 @@ import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-vital-conditions-add',
   templateUrl: 'edit_vital_conditions_add.html'
@@ -24,8 +26,10 @@ export class EditVitalConditionsAddPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
+    this.translate.use(sysOptions.systemLanguage);
       if (navParams.get("vitalData") != null){
         this.vitalData = navParams.get("vitalData");
         this.toggleFlag.toggleFlag = !this.vitalData.is_private;

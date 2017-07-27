@@ -21,6 +21,8 @@ import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/trans
 import { File } from '@ionic-native/file';
 import { BaseService } from "../../providers/base-service";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-profile',
   templateUrl: 'edit_profile.html'
@@ -49,8 +51,10 @@ export class EditProfilePage {
     public file:File,
     public baseService:BaseService,
     public fileTransfer: Transfer,
-    private flagService: Flags) {
+    private flagService: Flags,
+    public translate: TranslateService) {
 
+      this.translate.use(sysOptions.systemLanguage);
     this.profileItems = [
         { title: 'Vital Medical Conditions', component: EditVitalConditionsPage, icon: 'ios-warning-outline' },
         { title: 'Personal Information', component: EditPersonalInformationPage, icon: 'ios-contact-outline' },

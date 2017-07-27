@@ -21,8 +21,8 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseService.loginUrl, JSON.stringify(body), options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   forgot(email){
@@ -31,8 +31,8 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseService.forgotUrl, JSON.stringify(body), options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   signup(email, password, pw_confirm){
     let body = { user:
@@ -45,8 +45,8 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseService.signupUrl, JSON.stringify(body), options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   updateInfo( email, auth_token, body) {
@@ -54,15 +54,15 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
       console.log( JSON.stringify(body) + " "+  JSON.stringify(headers) + " " + this.baseService.updateUrl);
     return this.http.put(this.baseService.updateUrl, JSON.stringify(body), options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   cancelAccount(email, auth_token){
     let headers = new Headers({'Content-Type': 'application/json', 'auth_token': auth_token, 'email': email});
     let options = new RequestOptions({ headers: headers });
     return this.http.delete(this.baseService.cancelUrl, options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
 
@@ -104,8 +104,8 @@ export class UserService {
     let headers = new Headers({'Content-Type': 'application/json','auth_token': auth_token, 'email': email});
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseService.createProfileUrl, JSON.stringify(body), options)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   dataGet(email, auth_token, id, endpoint){

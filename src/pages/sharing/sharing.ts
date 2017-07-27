@@ -4,6 +4,8 @@ import { Storage } from '@ionic/storage';
 import { UserService } from "../../providers/user-service";
 import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-sharing',
   templateUrl: 'sharing.html'
@@ -31,9 +33,11 @@ export class SharingPage {
     public actionSheet: ActionSheet,
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
+    public translate: TranslateService
   ) {
       this.relationship="others";
       this.todayTime = new Date().getTime().toString();
+      this.translate.use(sysOptions.systemLanguage);
     }
 
   ngOnInit(){
@@ -78,27 +82,27 @@ export class SharingPage {
           cssClass: 'title-img',
           buttons: [
             {
-              text: 'Set Password ',
+              text: this.translate.get('Set Password')['value'],
               handler: () => {
                 console.log('SetPassword clicked');
                 // this.setPassword(profile.id);
                 this.showPassword(profile.id);
               }
             },{
-              text: 'Set Expiration',
+              text: this.translate.get('Set Expiration')['value'],
               handler: () => {
                 console.log('SetExpiration clicked');
                 this.showExpire(profile.id);
               }
             },{
-              text: 'Delete Shared Link',
+              text: this.translate.get('Delete Shared Link')['value'],
               role: 'destructive',
               handler: () => {
                 console.log('Archive clicked');
                 this.deleteItem(profile.id);
               }
             },{
-              text: 'Cancel',
+              text: this.translate.get('Cancel')['value'],
               role: 'cancel',
               handler: () => {
                 console.log('Cancel clicked');
@@ -118,26 +122,26 @@ export class SharingPage {
             cssClass: 'title-img',
             buttons: [
               {
-                text: 'Set Password ',
+                text: this.translate.get('Set Password')['value'],
                 handler: () => {
                   console.log('SetPassword clicked');
                   this.showPassword(document.id);
                 }
               },{
-                text: 'Set Expiration',
+                text: this.translate.get('Set Expiration')['value'],
                 handler: () => {
                   console.log('SetExpiration clicked');
                   this.showExpire(document.id);
                 }
               },{
-                text: 'Delete Shared Link',
+                text: this.translate.get('Delete Shared Link')['value'],
                 role: 'destructive',
                 handler: () => {
                   console.log('Archive clicked');
                   this.deleteItem(document.id);
                 }
               },{
-                text: 'Cancel',
+                text: this.translate.get('Cancel')['value'],
                 role: 'cancel',
                 handler: () => {
                   console.log('Cancel clicked');
@@ -172,10 +176,10 @@ export class SharingPage {
       });
     });
   }
-  
+
   showPassword(id) {
       let prompt = this.alertCtrl.create({
-        title: 'Set Password',
+        title: this.translate.get('Set Password')['value'],
         cssClass:'alert-position',
         inputs: [
           {
@@ -185,13 +189,13 @@ export class SharingPage {
         ],
         buttons: [
           {
-            text: 'Cancel',
+            text: this.translate.get('Cancel')['value'],
             handler: data => {
               console.log('Cancel clicked');
             }
           },
           {
-            text: 'Save',
+            text: this.translate.get('Save')['value'],
             handler: data => {
               console.log('Saved clicked');
               console.log(id + " " + data.value);
@@ -206,7 +210,7 @@ export class SharingPage {
     showExpire(id) {
         let today = new Date();
         let prompt = this.alertCtrl.create({
-          title: 'Set Expiration',
+          title: this.translate.get('Set Expiration')['value'],
           cssClass:'alert-position',
           inputs: [
             {
@@ -216,13 +220,13 @@ export class SharingPage {
           ],
           buttons: [
             {
-              text: 'Cancel',
+              text: this.translate.get('Cancel')['value'],
               handler: data => {
                 console.log('Cancel clicked');
               }
             },
             {
-              text: 'Save',
+              text: this.translate.get('Save')['value'],
               handler: data => {
                 console.log('Saved clicked');
                 console.log(id + " " + data.date);

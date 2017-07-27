@@ -2,7 +2,7 @@
   <ion-navbar>
     <button ion-button class="back_profile" (click)="goBack();">
       <ion-icon name="ios-arrow-back">
-        <span class="all_back">All Profile</span>
+        <span class="all_back">{{'All Profile' | translate}}</span>
       </ion-icon>
     </button>
     <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
@@ -22,14 +22,14 @@
     <ion-list>
         <ion-item *ngFor="let p of profileItems" (click)="openPage(p)">
             <ion-icon [name]="p.icon" item-left></ion-icon>
-            {{p.title}}
+            {{p.title | translate}}
             <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
         </ion-item>
     </ion-list>
 
-    <p *ngIf="profile.data.subscription_type=='Normal'" style="text-align:center;">Standard Account</p>
-    <p *ngIf="profile.data.subscription_type!='Normal'" style="text-align:center;">Premium Account</p>
-    <a *ngIf="profile.data.subscription_type=='Normal'" style="float: right; margin-top: -30px; margin-right: 20px;">Upgrade</a>
+    <p *ngIf="profile.data.subscription_type=='Normal'" style="text-align:center;">{{'Standard Account' | translate}}</p>
+    <p *ngIf="profile.data.subscription_type!='Normal'" style="text-align:center;">{{'PLUS' | translate}}</p>
+    <a *ngIf="profile.data.subscription_type=='Normal'" style="float: right; margin-top: -30px; margin-right: 20px;">{{'Upgrade' | translate}}</a>
 
     <div style="width:100%;height:40px;"></div>
 </ion-content>

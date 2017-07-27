@@ -7,14 +7,14 @@
     <ion-title class="response-android"><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
 
     <ion-buttons end>
-      <button ion-button class="add-profile-icon" (click)="addProfile();">
+      <button *ngIf="wifiValue" ion-button class="add-profile-icon" (click)="addProfile();">
       </button>
     </ion-buttons>
 
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background-color:rgb(228,228,228);">
+<ion-content style="background-color:rgb(228,228,228); ">
     <ion-card *ngFor="let profile of profiles" style="border-radius:6px;">
       <ion-item class="avatar-cell" (click)="gotoProfile($event, profile);">
           <ion-avatar item-left>
@@ -22,16 +22,16 @@
           </ion-avatar>
             <h2 style="font-size:5vw;">{{profile.person.first_name}} {{profile.person.last_name}}</h2>
             <div class="separator"></div>
-            <p *ngIf="profile.subscription_type=='Normal'">Standard Account</p>
-            <p *ngIf="profile.subscription_type!='Normal'" class="plus">PLUS</p>
+            <p *ngIf="profile.subscription_type=='Normal'">{{'Standard Account' | translate}}</p>
+            <p *ngIf="profile.subscription_type!='Normal'" class="plus">{{'PLUS' | translate}}</p>
       </ion-item>
       <button ion-button clear item-end class="sheet-btn" (click)="presentActionSheet($event, profile)"><ion-icon ios="md-more" md="md-more"></ion-icon></button>
     </ion-card>
 
-    <button *ngIf="update == 'bbb'" ion-button class="add-profile-btn" (click)="addProfile();"><img src="assets/image/add_profile_blue_icon.png" style="height:30px;"/>&nbsp;Add Profile</button>
+    <button *ngIf="update == 'bbb'" ion-button class="add-profile-btn" (click)="addProfile();"><img src="assets/image/add_profile_blue_icon.png" style="height:30px;"/>&nbsp;{{'Add Profile' | translate}}</button>
 
     <div *ngIf="update == 'aaa'">
-      <p class="update-txt" style="font-size: 20px;">Add Profile</p>
+      <p class="update-txt" style="font-size: 20px;">{{'Add Profile' | translate}}</p>
       <img src="assets/image/arrow.png" class="arrow"/>
     </div>
 </ion-content>

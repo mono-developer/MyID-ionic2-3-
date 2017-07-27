@@ -5,6 +5,8 @@ import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-physicians-add',
   templateUrl: 'edit_physicians_add.html'
@@ -25,8 +27,10 @@ export class EditPhysiciansAddPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
+    this.translate.use(sysOptions.systemLanguage);
     if (navParams.get("physicianData") != null){
       this.physicianData = navParams.get("physicianData");
       this.toggleFlag.toggleFlag = !this.physicianData.is_private;

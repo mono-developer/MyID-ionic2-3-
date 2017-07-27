@@ -8,7 +8,7 @@
     <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
 
     <ion-buttons end>
-      <button ion-button style="color:white; background-color:inherit;" (click)="selectOptions();" *ngIf="checkbox_flag!=1">
+      <button ion-button style="color:white; background-color:inherit;" (click)="selectOptions($event);" *ngIf="checkbox_flag!=1">
         <ion-icon name="more" style="font-size:30px;"></ion-icon>
       </button>
       <button ion-button style="color:white; background-color:inherit;" (click)="cancelSelect();" *ngIf="checkbox_flag==1">

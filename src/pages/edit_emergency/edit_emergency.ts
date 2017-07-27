@@ -6,6 +6,8 @@ import { UserService } from "../../providers/user-service";
 import { EditEmergencyAddPage } from '../edit_emergency_add/edit_emergency_add';
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-emergency',
   templateUrl: 'edit_emergency.html'
@@ -26,11 +28,13 @@ export class EditEmergencyPage {
     public userService: UserService,
     public storage: Storage,
     private flagService: Flags,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    public translate: TranslateService
   ) {
     this.profile_id = navParams.get("profile_id");
     this.email = "";
     this.auth_token = "";
+    this.translate.use(sysOptions.systemLanguage);
   }
 
   ngOnInit(){
@@ -91,17 +95,17 @@ export class EditEmergencyPage {
 
   presentActionSheet(event, emergencyData){
       let actionSheet = this.actionSheetCtrl.create({
-        title: 'More options',
+        title: '',
         buttons: [
           {
-            text: 'Delete Item',
+            text: this.translate.get('Delete')['value'],
             role: 'destructive',
             handler: () => {
               this.emergencyDataDelete(emergencyData);
               console.log('Delete clicked');
             }
           },{
-            text: 'Cancel',
+            text: this.translate.get('Cancel')['value'],
             role: 'cancel',
             handler: () => {
               console.log('Cancel clicked');

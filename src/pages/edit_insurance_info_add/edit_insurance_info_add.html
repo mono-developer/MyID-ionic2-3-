@@ -3,14 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">Insurance Information</div>
+    <ion-title class="title-custom"><div class="title-btn">{{'Insurance Information' | translate}}</div>
     </ion-title>
     <ion-buttons end>
       <button *ngIf="!insuranceinfoData.id" ion-button style="color:white; background-color:inherit;" (click)="insuranceinfoDataCreate();">
-        Save
+        {{'Save' | translate}}
       </button>
       <button *ngIf="insuranceinfoData.id" ion-button style="color:white; background-color:inherit;" (click)="insuranceinfoDataUpdate();">
-        Update
+        {{'Update' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -20,47 +20,47 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Provider</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.insurance_provider" type="text" class="edit_input" placeholder="Enter Provider"></ion-input>
+      <ion-label stacked class="edit_label">{{'Provider' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.insurance_provider" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">ID #</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.id_number" type="text" class="edit_input" placeholder="Enter ID#"></ion-input>
+      <ion-label stacked class="edit_label">{{'ID #' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.id_number" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Group#</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.group_number" type="text" class="edit_input" placeholder="Enter Group#"></ion-input>
+      <ion-label stacked class="edit_label">{{'Group #' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.group_number" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Bin#</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.bin_number" type="text" class="edit_input" placeholder="Enter Bin#"></ion-input>
+      <ion-label stacked class="edit_label">{{'Bin #' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.bin_number" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Deductible</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.deductible" type="text" class="edit_input" placeholder="Enter Deductible"></ion-input>
+      <ion-label stacked class="edit_label">{{'Deductible' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.deductible" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Phone Number</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.customer_service_phone_number" type="tel" class="edit_input" placeholder="Enter PhoneNumber"></ion-input>
+      <ion-label stacked class="edit_label">{{'Phone Number' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.customer_service_phone_number" type="tel" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Notes</ion-label>
-      <ion-input [(ngModel)]="insuranceinfoData.notes" type="text" class="edit_input" placeholder="Enter Notes"></ion-input>
+      <ion-label stacked class="edit_label">{{'Notes' | translate}}</ion-label>
+      <ion-input [(ngModel)]="insuranceinfoData.notes" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <div class="toggle-part">
-      <ion-label class="toggle-name">Visible on public profile? </ion-label>
+      <ion-label class="toggle-name">{{'Visible on public profile' | translate}} </ion-label>
       <ion-toggle [(ngModel)]="toggleFlag.toggleFlag" class="toggle-btn" (ionChange)="notify()" checked="false"></ion-toggle>
     </div>
 
     <div class="emergency-delete">
-      <button *ngIf="insuranceinfoData.id" ion-button outline round (click)="insuranceinfoDataDelete();">Delete</button>
+      <button *ngIf="insuranceinfoData.id" ion-button outline round (click)="insuranceinfoDataDelete();">{{'Delete' | translate}}</button>
     </div>
 
   </ion-list>

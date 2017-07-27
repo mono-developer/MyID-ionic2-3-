@@ -3,10 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">ADDRESS</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Address' | translate}}</div></ion-title>
     <ion-buttons end>
       <button ion-button style="color:white; background-color:inherit;" (click)=addressDataUpdate()>
-        Save
+        {{'Save' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -16,35 +16,35 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Line 1</ion-label>
-      <ion-input [(ngModel)]="address.line1" type="text" class="edit_input" placeholder="Enter Line 1"></ion-input>
+      <ion-label stacked class="edit_label">{{'Line 1' | translate}}</ion-label>
+      <ion-input [(ngModel)]="address.line1" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Line 2</ion-label>
-      <ion-input [(ngModel)]="address.line2" type="text" class="edit_input" placeholder="Enter Line 2"></ion-input>
+      <ion-label stacked class="edit_label">{{'Line 2' | translate}}</ion-label>
+      <ion-input [(ngModel)]="address.line2" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">City</ion-label>
-      <ion-input [(ngModel)]="address.city" type="text" class="edit_input" placeholder="Enter City"></ion-input>
+      <ion-label stacked class="edit_label">{{'City' | translate}}</ion-label>
+      <ion-input [(ngModel)]="address.city" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">State</ion-label>
-      <ion-input [(ngModel)]="address.state" type="tel" class="edit_input" placeholder="Enter State"></ion-input>
+      <ion-label stacked class="edit_label">{{'State' | translate}}</ion-label>
+      <ion-input [(ngModel)]="address.state" type="tel" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Country</ion-label>
+      <ion-label stacked class="edit_label">{{'Country' | translate}}</ion-label>
       <ion-select [(ngModel)]="address.country" class="edit-select">
         <ion-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">ZIP</ion-label>
-      <ion-input [(ngModel)]="address.zip" type="text" class="edit_input" placeholder="Enter ZIP"></ion-input>
+      <ion-label stacked class="edit_label">{{'Zip' | translate}}</ion-label>
+      <ion-input [(ngModel)]="address.zip" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
   </ion-list>

@@ -6,6 +6,8 @@ import { UserService } from "../../providers/user-service";
 import { EditAllergiesAddPage } from '../edit_allergies_add/edit_allergies_add';
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 
 @Component({
   selector: 'page-edit-allergies',
@@ -27,11 +29,13 @@ export class EditAllergiesPage {
     public userService: UserService,
     public storage: Storage,
     private flagService: Flags,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    public translate: TranslateService
   ) {
     this.profile_id = navParams.get("profile_id");
     this.email = "";
     this.auth_token = "";
+    this.translate.use(sysOptions.systemLanguage);
   }
 
 
@@ -96,7 +100,7 @@ export class EditAllergiesPage {
 
     if (allergiesData.is_private == false){
       let actionSheet = this.actionSheetCtrl.create({
-        title: 'More options',
+        title: '',
         buttons: [
           {
             text: 'Make This Item as Private',
@@ -105,14 +109,14 @@ export class EditAllergiesPage {
               console.log('Upgrade clicked');
             }
           },{
-            text: 'Delete Item',
+            text: this.translate.get('Delete')['value'],
             role: 'destructive',
             handler: () => {
               this.allergiesDataDelete(allergiesData);
               console.log('Delete clicked');
             }
           },{
-            text: 'Cancel',
+            text: this.translate.get('Cancel')['value'],
             role: 'cancel',
             handler: () => {
               console.log('Cancel clicked');
@@ -124,7 +128,7 @@ export class EditAllergiesPage {
     }
     else{
       let actionSheet = this.actionSheetCtrl.create({
-        title: 'More options',
+        title: '',
         buttons: [
           {
             text: 'Make This Item as Public',
@@ -133,14 +137,14 @@ export class EditAllergiesPage {
               console.log('Upgrade clicked');
             }
           },{
-            text: 'Delete Item',
+            text: this.translate.get('Delete')['value'],
             role: 'destructive',
             handler: () => {
               this.allergiesDataDelete(allergiesData);
               console.log('Delete clicked');
             }
           },{
-            text: 'Cancel',
+            text: this.translate.get('Cancel')['value'],
             role: 'cancel',
             handler: () => {
               console.log('Cancel clicked');

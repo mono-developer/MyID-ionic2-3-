@@ -3,11 +3,11 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">Personal Info</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Personal Informatino' | translate}}</div></ion-title>
 
     <ion-buttons end>
       <button ion-button style="color:white; background-color:inherit;" (click)="personalDataUpdate();">
-        Update
+        {{'Update' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -20,72 +20,72 @@
   </div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">First Name</ion-label>
-      <ion-input [(ngModel)]="person.first_name" type="text" class="edit_input" placeholder="Enter FirstName"></ion-input>
+      <ion-label stacked class="edit_label">{{'First Name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="person.first_name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Last Name</ion-label>
-      <ion-input [(ngModel)]="person.last_name" type="text" class="edit_input" placeholder="Enter LastName"></ion-input>
+      <ion-label stacked class="edit_label">{{'Last Name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="person.last_name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Middle Name</ion-label>
-      <ion-input [(ngModel)]="person.middle_name" type="text" class="edit_input" placeholder="Enter MiddleName"></ion-input>
+      <ion-label stacked class="edit_label">{{'Middle Name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="person.middle_name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Phone Number</ion-label>
-      <ion-input [(ngModel)]="person.phone_number" type="tel" class="edit_input" placeholder="Enter PhoneNumber"></ion-input>
+      <ion-label stacked class="edit_label">{{'Phone Number' | translate}}</ion-label>
+      <ion-input [(ngModel)]="person.phone_number" type="tel" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Birthdate</ion-label>
-      <ion-input [(ngModel)]="person.birth_date" type="date" class="edit_input" placeholder="Enter Birthdate"></ion-input>
+      <ion-label stacked class="edit_label">{{'Birthday' | translate}}</ion-label>
+      <ion-input [(ngModel)]="person.birth_date" type="date" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Gender</ion-label>
+      <ion-label stacked class="edit_label">{{'Gender' | translate}}</ion-label>
       <!-- <ion-input [(ngModel)]="person.gender" type="text" class="edit_input" placeholder="Enter Gender"></ion-input> -->
 
       <ion-select [(ngModel)]="person.gender" class="edit-select">
-        <ion-option *ngFor="let gender of genders" [value]="gender.value">{{gender.title}}</ion-option>
+        <ion-option *ngFor="let gender of genders" [value]="gender.value">{{gender.title | translate}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Hair</ion-label>
+      <ion-label stacked class="edit_label">{{'Hair' | translate}}</ion-label>
       <ion-select [(ngModel)]="person.hair" class="edit-select">
         <ion-option *ngFor="let hair of hairs" [value]="hair.value">{{hair.color}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Eye</ion-label>
+      <ion-label stacked class="edit_label">{{'Eye' | translate}}</ion-label>
       <ion-select [(ngModel)]="person.eye_color" class="edit-select">
         <ion-option *ngFor="let eye of eyes" [value]="eye.value">{{eye.color}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Height(CM)</ion-label>
+      <ion-label stacked class="edit_label">{{'Height(CM)' | translate}}</ion-label>
       <ion-input [(ngModel)]="person.height" type="number" class="edit_input" placeholder="Select Height(CM)"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Weight(KG)</ion-label>
+      <ion-label stacked class="edit_label">{{'Weight(KG)' | translate}}</ion-label>
       <ion-input [(ngModel)]="person.weight" type="number" class="edit_input" placeholder="Enter Weight(KG)"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Blood</ion-label>
+      <ion-label stacked class="edit_label">{{'Blood' | translate}}</ion-label>
       <ion-select [(ngModel)]="person.blood_type" class="edit-select" >
         <ion-option *ngFor="let blood of bloods" [value]="blood.value">{{blood.type}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Organ Donor</ion-label>
+      <ion-label stacked class="edit_label">{{'Organ Donor' | translate}}</ion-label>
       <ion-select [(ngModel)]="person.donor" class="edit-select">
         <ion-option *ngFor="let donor of donors" [value]="donor.value">{{donor.title}}</ion-option>
       </ion-select>

@@ -4,6 +4,8 @@ import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 import { Storage } from '@ionic/storage';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-linked-myid-add',
   templateUrl: 'edit_linked_myid_add.html'
@@ -16,7 +18,8 @@ export class EditLinkedMyIDAddPage {
   public auth_token:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public userService: UserService,
-      public storage: Storage, public flagService:Flags, public alertCtrl:AlertController) {
+      public storage: Storage, public flagService:Flags, public alertCtrl:AlertController, public translate: TranslateService) {
+        this.translate.use(sysOptions.systemLanguage);
       this.link = this.navParams.get('link');
       this.profile_id = this.navParams.get('profile_id');
       console.log(JSON.stringify(this.link));

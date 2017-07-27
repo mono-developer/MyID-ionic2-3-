@@ -9,6 +9,8 @@
     <img src="assets/image/sidemenu_background.png" class="sidemenu-background"/>
     <img src="assets/image/sidemenu_logo.png" class="sidemenu-logo"/>
     <div class="sidemenu-mail">{{email}}</div>
+    <!-- <div class="sidemenu-mail">{{'Manage Profiles' | translate}}</div> -->
+
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="sidemenu-button">
         <img src="assets/image/users.png" *ngIf="p.title=='Manage Profiles'" class="sidemenu-icon"/>
@@ -16,7 +18,7 @@
         <img src="assets/image/sharing.png" *ngIf="p.title=='Sharing'" class="sidemenu-icon"/>
         <img src="assets/image/review.png" *ngIf="p.title=='Review Community'" class="sidemenu-icon"/>
         <img src="assets/image/setting.png" *ngIf="p.title=='Account Setting'" class="sidemenu-icon"/>
-        <div class="sidemenu-title">{{p.title}}</div>
+        <div class="sidemenu-title">{{p.title | translate}}</div>
       </button>
     </ion-list>
 

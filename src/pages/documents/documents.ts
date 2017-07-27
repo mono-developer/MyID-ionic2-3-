@@ -199,12 +199,12 @@ export class DocumentsPage {
     }
   }
 
-  selectOptions(){
+  selectOptions(myEvent){
     let data = {'profile_id': this.profile.data.id, 'parent_id':this.parent_id, 'sort_flag':this.sort_flag};
     console.log("dataaa", data);
     let popover = this.popOverCtrl.create(PopoverContentPage, data);
     popover.present({
-
+      ev: myEvent
     });
 
     popover.onDidDismiss((popoverData) => {

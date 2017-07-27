@@ -3,14 +3,14 @@
 </ion-header>
 
 <ion-tabs #myTabs>
-  <ion-tab [root]="editProfilePage" tabTitle="Edit" tabIcon="ios-options-outline" id="tabsController-tab1" [rootParams]="profile"></ion-tab>
-  <ion-tab [root]="linkProductPage" tabTitle="Link Product" tabIcon="ios-link-outline" id="tabsController-tab2" [rootParams]="profile"></ion-tab>
+  <ion-tab [root]="editProfilePage" tabTitle="{{'Edit' | translate}}" tabIcon="ios-options-outline" id="tabsController-tab1" [rootParams]="profile"></ion-tab>
+  <ion-tab [root]="linkProductPage" tabTitle="{{'Link Product' | translate}}" tabIcon="ios-link-outline" id="tabsController-tab2" [rootParams]="profile"></ion-tab>
   <ion-tab [root]="previewProfilePage"
        tabIcon="customicon"
-       tabTitle="Preview" [rootParams]="profile">
+       tabTitle="{{'Preview' | translate}}" [rootParams]="profile">
   </ion-tab>
-  <ion-tab [root]="documentsPage" tabTitle="Documents" tabIcon="ios-folder-outline" [enabled]="profile.subscription_type!='Normal'" id="tabsController-tab4" [rootParams]="profile"></ion-tab>
-  <ion-tab [root]="qrWallpaperPage" tabTitle="QR Wallpaper" tabIcon="ios-qr-scanner-outline" id="tabsController-tab5"></ion-tab>
+  <ion-tab [root]="documentsPage" tabTitle="{{'Documents' | translate}}" tabIcon="ios-folder-outline" [enabled]="profile.subscription_type!='Normal'" id="tabsController-tab4" [rootParams]="profile"></ion-tab>
+  <ion-tab [root]="qrWallpaperPage" tabTitle="{{'QR Wallpaper' | translate}}" tabIcon="ios-qr-scanner-outline" id="tabsController-tab5"></ion-tab>
 </ion-tabs>
 
 <img [src]="profile.person.image_url.thumb" class="tab-avatar" onError="this.src='/assets/image/default_avatar.png';" (click)="selectPreviewTab();"/>

@@ -3,13 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="title-custom"><div class="title-btn">EMERGENCY CONTACTS</div></ion-title>
+    <ion-title class="title-custom"><div class="title-btn">{{'Emergency' | translate}}</div></ion-title>
     <ion-buttons end>
       <button *ngIf="!emergencyData.id" ion-button style="color:white; background-color:inherit;" (click)="emergencyDataCreate();">
-        Save
+        {{'Save' | translate}}
       </button>
       <button *ngIf="emergencyData.id" ion-button style="color:white; background-color:inherit;" (click)="emergencyDataUpdate();">
-        Update
+        {{'Update' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -19,32 +19,32 @@
   <div style="margin-top: 20px;"></div>
   <ion-list>
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Name</ion-label>
-      <ion-input [(ngModel)] ="emergencyData.name" type="text" class="edit_input" placeholder="Enter Name"></ion-input>
+      <ion-label stacked class="edit_label">{{'Name' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="emergencyData.name" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Relationship</ion-label>
-      <ion-input [(ngModel)] ="emergencyData.relationship" type="text" class="edit_input" placeholder="Enter Relationship"></ion-input>
+      <ion-label stacked class="edit_label">{{'Relationship' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="emergencyData.relationship" type="text" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Phone Number</ion-label>
-      <ion-input [(ngModel)] ="emergencyData.phone_number" type="tel" class="edit_input" placeholder="Enter PhoneNumber"></ion-input>
+      <ion-label stacked class="edit_label">{{'Phone Number' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="emergencyData.phone_number" type="tel" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Alt PhoneNumber</ion-label>
-      <ion-input [(ngModel)] ="emergencyData.alt_phone_number" type="tel" class="edit_input" placeholder="Enter Alt Phone"></ion-input>
+      <ion-label stacked class="edit_label">{{'Alt Phone' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="emergencyData.alt_phone_number" type="tel" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">Email</ion-label>
-      <ion-input [(ngModel)] ="emergencyData.email" type="email" class="edit_input" placeholder="Enter Email"></ion-input>
+      <ion-label stacked class="edit_label">{{'Email' | translate}}</ion-label>
+      <ion-input [(ngModel)] ="emergencyData.email" type="email" class="edit_input" placeholder=""></ion-input>
     </ion-item>
 
     <div class="emergency-delete">
-      <button *ngIf="emergencyData.id" ion-button outline round (click)="emergencyDataDelete();">Delete</button>
+      <button *ngIf="emergencyData.id" ion-button outline round (click)="emergencyDataDelete();">{{'Delete' | translate}}</button>
     </div>
 
   </ion-list>

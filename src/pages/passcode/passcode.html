@@ -10,11 +10,12 @@
 
 <ion-content style="background-color:rgb(228,228,228);">
   <div style="margin-top: 15vh;">
-    <button ion-button full  color="light" class="setting_btn">
-      <p class="title">Turn Passcode Off</p>
+    <button ion-button full  color="light" class="setting_btn" (click)="setPasscode('set')">
+      <p *ngIf="!passValue" class="title">Turn Passcode On</p>
+      <p *ngIf="passValue" class="title">Turn Passcode Off</p>
       <ion-icon name="ios-arrow-forward-outline" class="icon"></ion-icon>
     </button>
-    <button ion-button full  color="light" class="setting_btn">
+    <button [disabled]="isDisable" ion-button full  color="light" class="setting_btn" (click)="setPasscode('change')">
       <p class="title">Change Passcode</p>
       <ion-icon name="ios-arrow-forward-outline" style="margin-right: -5px;"></ion-icon>
     </button>

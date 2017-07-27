@@ -4,6 +4,8 @@ import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 import { Storage } from '@ionic/storage';
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-success-link',
   templateUrl: 'success_link.html'
@@ -17,7 +19,8 @@ export class SuccessLinkPage {
   tab:Tabs;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public nav: Nav, public loadingCtrl: LoadingController, public userService: UserService,
-      public storage: Storage, public flagService:Flags) {
+      public storage: Storage, public flagService:Flags, public translate: TranslateService) {
+        this.translate.use(sysOptions.systemLanguage);
     this.tab = this.navCtrl.parent;
     this.link = this.navParams.get('link');
     this.profile_id = this.navParams.get('profile_id');

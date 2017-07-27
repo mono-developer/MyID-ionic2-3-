@@ -17,23 +17,23 @@
 
   <div class="or-div">
     <div class="or-separator"></div>
-    <div class="or-label">OR</div>
+    <div class="or-label">{{'OR' | translate}}</div>
     <div class="or-separator"></div>
   </div>
 
   <div class="link-info-div">
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">ID #</ion-label>
+      <ion-label stacked class="edit_label">{{'ID #' | translate}}</ion-label>
       <ion-input [(ngModel)]="link_info.id" type="number" class="edit_input" placeholder="XXXXXXX"></ion-input>
     </ion-item>
 
     <ion-item class="edit-pro-border">
-      <ion-label stacked class="edit_label">PIN #</ion-label>
+      <ion-label stacked class="edit_label">{{'PIN #' | translate}}</ion-label>
       <ion-input [(ngModel)]="link_info.pin" type="number" class="edit_input" placeholder="XXXX"></ion-input>
     </ion-item>
   </div>
 
   <div class="link-btn">
-    <button ion-button outline round (click)="linkToProfile();">Link To Profile Manually</button>
+    <button ion-button outline round (click)="linkToProfile();">{{'Link To Profile Manually' | translate}}</button>
   </div>
 </ion-content>

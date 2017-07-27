@@ -6,6 +6,8 @@ import { UserService } from "../../providers/user-service";
 import { EditInsuranceInfoAddPage } from '../edit_insurance_info_add/edit_insurance_info_add';
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-insurance-info',
   templateUrl: 'edit_insurance_info.html'
@@ -26,11 +28,13 @@ export class EditInsuranceInfoPage {
     public userService: UserService,
     public storage: Storage,
     private flagService: Flags,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    public translate: TranslateService
   ) {
     this.profile_id = navParams.get("profile_id");
     this.email = "";
     this.auth_token = "";
+    this.translate.use(sysOptions.systemLanguage);
   }
 
   ngOnInit(){
@@ -103,7 +107,7 @@ export class EditInsuranceInfoPage {
               console.log('Upgrade clicked');
             }
           },{
-            text: 'Delete Item',
+            text: this.translate.get('Delete')['value'],
             role: 'destructive',
             handler: () => {
               this.insuranceinfoDataDelete(insuranceinfoData);
@@ -131,14 +135,14 @@ export class EditInsuranceInfoPage {
               console.log('Upgrade clicked');
             }
           },{
-            text: 'Delete Item',
+            text: this.translate.get('Delete')['value'],
             role: 'destructive',
             handler: () => {
               this.insuranceinfoDataDelete(insuranceinfoData);
               console.log('Delete clicked');
             }
           },{
-            text: 'Cancel',
+        text: this.translate.get('Cancel')['value'],
             role: 'cancel',
             handler: () => {
               console.log('Cancel clicked');
@@ -234,7 +238,7 @@ export class EditInsuranceInfoPage {
                 alert.present();
 
               } else{
-                
+
                 let alert = this.alertCtrl.create({
                   title: "Updated", subTitle: "Updated Success", buttons: ['OK']
                 });

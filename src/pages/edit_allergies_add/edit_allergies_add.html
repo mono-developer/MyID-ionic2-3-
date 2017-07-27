@@ -3,13 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title class="ion-title-custom"><div style="color:white;">Allergies</div></ion-title>
+    <ion-title class="ion-title-custom"><div style="color:white;">{{'Allergies' | translate}}</div></ion-title>
     <ion-buttons end>
       <button *ngIf="!allergiesData.id" ion-button style="color:white; background-color:inherit;" (click)="allergiesDataCreate();">
-        Save
+        {{'Save' | translate}}
       </button>
       <button *ngIf="allergiesData.id" ion-button style="color:white; background-color:inherit;" (click)="allergiesDataUpdate();">
-        Update
+        {{'Update' | translate}}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -18,22 +18,22 @@
 <ion-content class="bg2">
   <ion-list class="vital_con_input">
         <ion-item class="vital_con_item">
-          <ion-label floating style="color: #008ecf">Name</ion-label>
-          <ion-input type="text" [(ngModel)]="allergiesData.name"  type="text" value="" placeholder="Name"></ion-input>
+          <ion-label floating style="color: #008ecf">{{'Name' | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="allergiesData.name"  type="text" value="" placeholder="{{'Name' | translate}}"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating style="color: #008ecf">Notes</ion-label>
-          <ion-input [(ngModel)]="allergiesData.notes" type="text" value="" placeholder="Notes"></ion-input>
+          <ion-label floating style="color: #008ecf">{{'Notes' | translate}}</ion-label>
+          <ion-input [(ngModel)]="allergiesData.notes" type="text" value="" placeholder="{{'Notes' | translate}}"></ion-input>
         </ion-item>
 
         <div class="toggle-part">
-          <ion-label class="toggle-name">Visible on public profile? </ion-label>
+          <ion-label class="toggle-name">{{'Visible on public profile' | translate}} </ion-label>
           <ion-toggle [(ngModel)]="toggleFlag.toggleFlag" class="toggle-btn" (ionChange)="notify()" checked="false"></ion-toggle>
         </div>
 
         <div class="vital-delete">
-          <button  *ngIf="allergiesData.id" ion-button outline round (click)="allergiesDataDelete();">Delete</button>
+          <button  *ngIf="allergiesData.id" ion-button outline round (click)="allergiesDataDelete();">{{'Delete' | translate}}</button>
         </div>
     </ion-list>
 </ion-content>

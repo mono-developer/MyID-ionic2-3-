@@ -2,7 +2,7 @@
   <ion-navbar>
     <button ion-button class="back_profile" (click)="goBack();">
       <ion-icon name="ios-arrow-back">
-        <span class="all_back">All Profile</span>
+        <span class="all_back">{{'All Profile' | translate}}</span>
       </ion-icon>
     </button>
     <ion-title><img src="assets/image/sidemenu_logo.png" style="height:30px;"/></ion-title>
@@ -11,8 +11,8 @@
 
 <ion-content style="text-align:center;">
   <img src="assets/image/phone.png" class="phone"/>
-  <div class="qr-description">Create a custom QR Wallpaper to display your MyID Profile on your lock screen.</div>
-  <div class="select-background">Select a background photo</div>
+  <div class="qr-description">{{'Create a custom QR Wallpaper to display your MyID Profile on your lock screen.' | translate}}</div>
+  <div class="select-background">{{'Select a background photo' | translate}}</div>
 
   <div class="camera-library-div">
     <img src="assets/image/camera.png" class="camera" style="height:6vh; margin-right:20px;" (click)="goCamera();"/>

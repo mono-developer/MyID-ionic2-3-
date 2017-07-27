@@ -5,6 +5,8 @@ import { IonicStorageModule } from '@ionic/Storage';
 import { UserService } from "../../providers/user-service";
 import { Flags } from "../../providers/flag";
 
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage, availableLanguages, sysOptions } from '../../app/app.constants';
 @Component({
   selector: 'page-edit-other-info-add',
   templateUrl: 'edit_other_info_add.html'
@@ -24,8 +26,10 @@ export class EditOtherInfoAddPage {
     public loadingCtrl: LoadingController,
     public userService: UserService,
     public storage: Storage,
-    private flagService: Flags
+    private flagService: Flags,
+    public translate: TranslateService
   ) {
+    this.translate.use(sysOptions.systemLanguage);
     if (navParams.get("otherInfoData") != null){
       this.otherInfoData = navParams.get("otherInfoData");
       this.toggleFlag.toggleFlag = !this.otherInfoData.is_private;
